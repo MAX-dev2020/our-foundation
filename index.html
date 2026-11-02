@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Foundation</title>
+<meta name="description" content="Read this before every song. If an idea doesn’t pass it, it doesn’t go out.">
+<meta name="theme-color" content="#1c2456">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2456'/%3E%3Ccircle cx='16' cy='16' r='3.6' fill='%23f4b23c'/%3E%3Cg fill='%23f4ebda'%3E%3Ccircle cx='16' cy='7.5' r='1.7'/%3E%3Ccircle cx='23.36' cy='11.75' r='1.7'/%3E%3Ccircle cx='23.36' cy='20.25' r='1.7'/%3E%3Ccircle cx='16' cy='24.5' r='1.7'/%3E%3Ccircle cx='8.64' cy='20.25' r='1.7'/%3E%3Ccircle cx='8.64' cy='11.75' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..800;1,400..800&display=swap">
+<noscript><style>.hero-pattern { display: none !important; }</style></noscript>
+<style>
+  /* Indigo and marigold: two dyes that belong to many cultures at once. */
+  :root {
+    --indigo: #1c2456;
+    --indigo-raised: #252f68;
+    --indigo-line: #3a4584;
+    --ivory: #f4ebda;
+    --mist: #c4c3d9;
+    --marigold: #f4b23c;
+    --unlit: rgba(244, 235, 218, 0.22);
+    --serif: "Alegreya", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    --measure: 40rem;
+    --gutter: 1.25rem;
+    --space: clamp(4rem, 9vw, 6.25rem);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--indigo);
+    color: var(--ivory);
+    font-family: var(--serif);
+    font-size: clamp(1.125rem, 1.04rem + 0.35vw, 1.25rem);
+    line-height: 1.65;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* A faint woven grain, so the indigo reads as cloth rather than a flat screen */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  ::selection { background: var(--marigold); color: var(--indigo); }
+
+  .measure {
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ---------- Opening ---------- */
+
+  .hero {
+    min-height: 92vh;
+    min-height: min(100svh, 54rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem var(--gutter) 3.5rem;
+    text-align: center;
+  }
+
+  .hero-pattern {
+    display: block;
+    width: min(70vw, 23rem);
+    height: min(70vw, 23rem);
+    margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+    overflow: visible;
+  }
+
+  .hero h1 {
+    margin: 0 0 1.25rem;
+    font-weight: 500;
+    font-size: clamp(3.25rem, 1.9rem + 5.8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .hero-sub {
+    margin: 0;
+    font-style: italic;
+    font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.55rem);
+    line-height: 1.45;
+    color: var(--mist);
+    text-wrap: balance;
+  }
+
+  .hero-sub span { display: block; }
+
+  /* ---------- Reading ---------- */
+
+  .section { padding-top: var(--space); }
+
+  h2 {
+    margin: 0 0 1.5rem;
+    font-weight: 500;
+    font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  h3 {
+    margin: 0 0 0.35rem;
+    font-weight: 500;
+    font-size: 1.3em;
+    line-height: 1.3;
+  }
+
+  p { margin: 0 0 1em; text-wrap: pretty; }
+  p:last-child { margin-bottom: 0; }
+
+  .lede {
+    font-size: 1.3em;
+    line-height: 1.45;
+    margin-bottom: 1.1em;
+  }
+
+  /* The journey: a real sequence, so it gets a path. Each step's mark widens. */
+  .path {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
+  }
+
+  .path > li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    column-gap: 1.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .path > li:last-child { padding-bottom: 0; }
+
+  .path > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 3.4rem;
+    bottom: 0.65rem;
+    left: calc(1.375rem - 1px);
+    border-left: 2px dotted var(--indigo-line);
+  }
+
+  .step-mark {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .path h3 { grid-column: 2; grid-row: 1; margin-top: 0.3rem; }
+  .path p { grid-column: 2; grid-row: 2; color: var(--mist); }
+
+  .aside {
+    margin-top: 2.75rem;
+    font-style: italic;
+    font-size: 1.15em;
+    line-height: 1.5;
+  }
+
+  /* ---------- The one-line test ---------- */
+
+  .band {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-top: var(--space);
+    padding: clamp(5.5rem, 14vw, 10rem) var(--gutter);
+    background: var(--marigold);
+    color: var(--indigo);
+    text-align: center;
+  }
+
+  .band-pattern {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    width: max(100%, 56rem);
+    height: auto;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .band h2 {
+    margin: 0 0 1.1rem;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.45rem);
+    letter-spacing: 0;
+  }
+
+  .band-line {
+    margin: 0;
+    font-weight: 600;
+    font-size: clamp(2.75rem, 1.3rem + 6.4vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  /* ---------- Lists ---------- */
+
+  .dot-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+
+  .dot-list > li {
+    position: relative;
+    padding-left: 1.6rem;
+  }
+
+  .dot-list > li::before {
+    content: "";
+    position: absolute;
+    left: 0.1rem;
+    top: 0.66em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--marigold);
+  }
+
+  .qualities { gap: 2.25rem; margin-top: 2.5rem; }
+  .qualities p { color: var(--mist); }
+
+  .note {
+    margin: 3rem 0 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1rem;
+    background: var(--indigo-raised);
+    color: var(--mist);
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+
+  .note strong { color: var(--ivory); font-weight: 600; }
+
+  /* Dashed, like open slots: these are the parts that change from song to song */
+  .pills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 2rem;
+    padding: 0;
+  }
+
+  .pills li {
+    padding: 0.35rem 0.9rem 0.45rem;
+    border: 1.5px dashed rgba(244, 235, 218, 0.42);
+    border-radius: 999px;
+    font-size: 0.98em;
+    line-height: 1.2;
+  }
+
+  .principles { gap: 1.15rem; }
+  .principles strong { font-weight: 600; }
+
+  .closing {
+    margin: 3.5rem 0 0;
+    max-width: 28ch;
+    font-style: italic;
+    font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem);
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  /* ---------- Before any song goes out ---------- */
+
+  .check-card {
+    padding: clamp(1.5rem, 5vw, 2.75rem);
+    border-radius: 1.5rem;
+    background: var(--indigo-raised);
+    transition: box-shadow 0.5s ease;
+  }
+
+  .check-card.is-complete {
+    box-shadow: 0 0 0 1.5px rgba(244, 178, 60, 0.55), 0 1.5rem 4rem -1rem rgba(244, 178, 60, 0.28);
+  }
+
+  .check-head {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .check-head h2 { margin: 0; }
+
+  .progress {
+    flex: none;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .checks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .checks li + li { border-top: 1px solid var(--indigo-line); }
+
+  .checks label {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.05rem 0;
+    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
+  .checks li:last-child label { padding-bottom: 0.25rem; }
+
+  .checks input {
+    position: absolute;
+    top: 1.05rem;
+    left: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .box {
+    flex: none;
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-top: 0.05em;
+    border: 2px solid rgba(244, 235, 218, 0.45);
+    border-radius: 50%;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .box::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 0.42rem;
+    height: 0.78rem;
+    border: solid var(--indigo);
+    border-width: 0 2.5px 2.5px 0;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.5);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+  }
+
+  .checks label:hover .box { border-color: var(--marigold); }
+
+  .checks input:checked + .box {
+    background: var(--marigold);
+    border-color: var(--marigold);
+  }
+
+  .checks input:checked + .box::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+
+  .checks input:focus-visible + .box {
+    outline: 2px solid var(--marigold);
+    outline-offset: 3px;
+  }
+
+  .foot {
+    display: flex;
+    justify-content: center;
+    padding: clamp(4rem, 9vw, 6rem) 0 3.5rem;
+  }
+
+  .foot-mark { width: 2.25rem; height: 2.25rem; }
+
+  /* ---------- Dots ---------- */
+
+  .dots circle { fill: var(--ivory); }
+  .dots .warm circle,
+  .dots .dot-center { fill: var(--marigold); }
+  .halo-stop { stop-color: var(--marigold); }
+  .band-pattern circle { fill: var(--indigo); }
+
+  .progress .ring circle {
+    fill: var(--unlit);
+    transition: fill 0.25s ease;
+    transition-delay: calc(var(--d, 0) * 360ms);
+  }
+
+  .progress .ring.is-on circle { fill: var(--marigold); }
+
+  /* The one unprompted motion on the page: the circle forming, centre first */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-pattern .ring,
+    .hero-pattern .dot-center,
+    .hero-pattern .halo {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: ring-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation-delay: calc(150ms + var(--k, 0) * 90ms);
+    }
+  }
+
+  @keyframes ring-in {
+    from { opacity: 0; transform: scale(0.6); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .progress .ring circle,
+    .box,
+    .box::after,
+    .check-card { transition: none; }
+  }
+
+  /* ---------- Print: ink on paper, checklist left blank ---------- */
+
+  @media print {
+    :root {
+      --indigo: #ffffff;
+      --indigo-raised: #ffffff;
+      --indigo-line: #b9b9c6;
+      --ivory: #1c2456;
+      --mist: #3d4160;
+      --marigold: #9a5d00;
+      --unlit: #c9c9d4;
+    }
+    body { font-size: 11.5pt; }
+    body::after,
+    .hero-pattern,
+    .band-pattern { display: none; }
+    .hero { min-height: 0; padding: 0 0 1rem; }
+    .section { padding-top: 2.25rem; }
+    .band {
+      margin-top: 2.25rem;
+      padding: 1.75rem 0;
+      background: none;
+      color: #1c2456;
+      border-block: 1.5pt solid #1c2456;
+    }
+    .note, .check-card { border: 1pt solid #b9b9c6; }
+    .check-card { box-shadow: none !important; }
+    .box { border-color: #1c2456; }
+    h2, h3 { break-after: avoid; }
+    li, .note, .check-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="dots hero-pattern" aria-hidden="true" focusable="false"></svg>
+  <h1>Our Foundation</h1>
+  <p class="hero-sub"><span>Read this before every song.</span> <span>If an idea doesn’t pass it, it doesn’t go out.</span></p>
+</header>
+
+<main>
+
+  <section class="section measure" aria-labelledby="why">
+    <h2 id="why">Why we’re here</h2>
+    <p class="lede">We are seekers. What we want is inclusiveness, because when people become inclusive, union can happen. That’s what yoga is.</p>
+    <p>The way there is inward, so our music exists to turn people inward.</p>
+    <p>We do it by giving, not taking, offering what we have: our joy and our love. To give them, we have to be them. Our songs can only carry what we are.</p>
+    <p>We’re not here to become big. If one song turns one person inward, it has done the whole job.</p>
+  </section>
+
+  <section class="section measure" aria-labelledby="journey">
+    <h2 id="journey">The journey</h2>
+    <ol class="path">
+      <li>
+        <svg class="dots step-mark" data-mark="0" aria-hidden="true" focusable="false"></svg>
+        <h3>First, turn inward.</h3>
+        <p>Most people aren’t asking the deeper questions yet. We start by turning them inward a little and showing them that the path is inward.</p>
+      </li>
+      <li>
+        <svg class="dots step-mark" data-mark="1" aria-hidden="true" focusable="false"></svg>
+        <h3>Then, seeking.</h3>
+        <p>Songs about the seeking itself: the why, the questions, the search for answers.</p>
+      </li>
+      <li>
+        <svg class="dots step-mark" data-mark="2" aria-hidden="true" focusable="false"></svg>
+        <h3>Over time, the whole path.</h3>
+        <p>Our channel, playlists and albums will hold all of it, and all of it will be inclusive.</p>
+      </li>
+    </ol>
+    <p class="aside">Spirituality isn’t only joy. Our songs can carry questions, struggle and longing, as long as they point inward.</p>
+  </section>
+
+  <section class="band" aria-labelledby="test">
+    <svg class="dots band-pattern" aria-hidden="true" focusable="false"></svg>
+    <h2 id="test">Our one-line test</h2>
+    <p class="band-line">Inward and inclusive.</p>
+  </section>
+
+  <section class="section measure" aria-labelledby="carries">
+    <h2 id="carries">What every song carries</h2>
+    <p class="lede">Spirituality doesn’t need a guru or a label. It’s simply how we are. Every song shows that.</p>
+    <ol class="dot-list qualities">
+      <li>
+        <h3>It points inward.</h3>
+        <p>Whatever it’s about (a person, nature, a moment, anything), it turns the listener toward themselves. Even a song that only asks a question looks inward for the answer.</p>
+      </li>
+      <li>
+        <h3>It widens the circle.</h3>
+        <p>It includes rather than divides: people, nature, even the parts of ourselves we push away.</p>
+      </li>
+      <li>
+        <h3>It shows, never tells.</h3>
+        <p>If a lesson needs a line to explain it, it’s a sermon. The listener should get there on their own.</p>
+      </li>
+      <li>
+        <h3>It never judges.</h3>
+        <p>No “you’re living wrong.”</p>
+      </li>
+    </ol>
+    <p class="note"><strong>On religion and gurus:</strong> any religion can appear as part of someone’s life. Gurus, and anything that would make us look like a guru’s channel, stay out for now. Later they may come in subtly, never as the highlight.</p>
+  </section>
+
+  <section class="section measure" aria-labelledby="free">
+    <h2 id="free">What’s free to change</h2>
+    <ul class="pills">
+      <li>Subject</li>
+      <li>Genre</li>
+      <li>Language</li>
+      <li>Country</li>
+      <li>Character</li>
+      <li>Setting</li>
+    </ul>
+    <p>Every song can live in a different world. Music from one culture with a character from another: the mixing itself says we’re one.</p>
+  </section>
+
+  <section class="section measure" aria-labelledby="true-title">
+    <h2 id="true-title">How we stay true</h2>
+    <ul class="dot-list principles">
+      <li><strong>Consistency:</strong> we show up for years, not months.</li>
+      <li><strong>Craft:</strong> every song has to work as a song first, one people want to replay.</li>
+      <li><strong>Integrity under pressure:</strong> when a song flops or takes off, we don’t chase the numbers. We come back to this page.</li>
+    </ul>
+    <p class="closing">This stays limitless only as long as we don’t need it to be big.</p>
+  </section>
+
+  <section class="section measure" aria-labelledby="before">
+    <div class="check-card">
+      <div class="check-head">
+        <svg class="dots progress" aria-hidden="true" focusable="false"></svg>
+        <h2 id="before">Before any song goes out</h2>
+      </div>
+      <ul class="checks">
+        <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Is it inward and inclusive?</span></label></li>
+        <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Does it show rather than tell, and stay free of judgment?</span></label></li>
+        <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Are we giving with this song, or wanting something back?</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<div class="foot" aria-hidden="true">
+  <svg class="dots foot-mark" data-mark="2" focusable="false"></svg>
+</div>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  var TAU = Math.PI * 2;
+  var GOLDEN = 2.399963229728653;
+
+  function make(tag, attrs) {
+    var node = document.createElementNS(NS, tag);
+    for (var key in attrs) node.setAttribute(key, attrs[key]);
+    return node;
+  }
+
+  // A centre dot with rings of dots around it: the point we turn toward, and the circle we widen.
+  function drawRings(svg, o) {
+    if (!svg) return;
+    var extent = o.extent || o.rings * o.gap + (o.pad || 4);
+    svg.setAttribute("viewBox", [-extent, -extent, extent * 2, extent * 2].join(" "));
+
+    if (o.halo) {
+      var id = "halo-" + Math.random().toString(36).slice(2, 8);
+      var defs = make("defs", {});
+      var grad = make("radialGradient", { id: id });
+      grad.appendChild(make("stop", { offset: "0", "class": "halo-stop", "stop-opacity": "0.45" }));
+      grad.appendChild(make("stop", { offset: "0.45", "class": "halo-stop", "stop-opacity": "0.12" }));
+      grad.appendChild(make("stop", { offset: "1", "class": "halo-stop", "stop-opacity": "0" }));
+      defs.appendChild(grad);
+      svg.appendChild(defs);
+      var halo = make("circle", { r: o.halo, "class": "halo" });
+      halo.style.fill = "url(#" + id + ")";
+      svg.appendChild(halo);
+    }
+
+    for (var k = 1; k <= o.rings; k++) {
+      var radius = k * o.gap;
+      var count = Math.max(6, Math.round((TAU * radius) / o.spacing));
+      var t = o.rings > 1 ? (k - 1) / (o.rings - 1) : 0;
+      var size = o.r0 + (o.r1 - o.r0) * t;
+      var alpha = o.alpha ? o.alpha(radius) : o.a0 + (o.a1 - o.a0) * t;
+      var ring = make("g", {
+        "class": k <= (o.warm || 0) ? "ring warm" : "ring",
+        "fill-opacity": alpha.toFixed(3)
+      });
+      ring.style.setProperty("--k", k);
+      var offset = o.aligned ? 0 : (k * GOLDEN) % (TAU / count);
+      for (var i = 0; i < count; i++) {
+        var a = offset + (i / count) * TAU - Math.PI / 2;
+        var dot = make("circle", {
+          cx: (radius * Math.cos(a)).toFixed(2),
+          cy: (radius * Math.sin(a)).toFixed(2),
+          r: size.toFixed(2)
+        });
+        dot.style.setProperty("--d", (i / count).toFixed(3));
+        ring.appendChild(dot);
+      }
+      svg.appendChild(ring);
+    }
+
+    if (o.center) svg.appendChild(make("circle", { r: o.center, "class": "dot-center" }));
+  }
+
+  drawRings(document.querySelector(".hero-pattern"), {
+    rings: 11, gap: 17, spacing: 15.5, r0: 2.7, r1: 1.45, a0: 0.95, a1: 0.16,
+    center: 6.5, halo: 64, warm: 1, pad: 6
+  });
+
+  drawRings(document.querySelector(".band-pattern"), {
+    rings: 15, gap: 34, spacing: 10.5, r0: 1.6, r1: 1.6, pad: 4,
+    alpha: function (radius) {
+      var t = Math.min(1, Math.max(0, (radius - 110) / 260));
+      return 0.26 * t * t * (3 - 2 * t);
+    }
+  });
+
+  var marks = document.querySelectorAll("[data-mark]");
+  for (var m = 0; m < marks.length; m++) {
+    drawRings(marks[m], {
+      rings: Number(marks[m].getAttribute("data-mark")),
+      gap: 6.5, spacing: 5.6, r0: 1.3, r1: 1.3, a0: 1, a1: 0.55, center: 2.8, extent: 17
+    });
+  }
+
+  var progress = document.querySelector(".progress");
+  drawRings(progress, {
+    rings: 3, gap: 6.5, spacing: 5.4, r0: 1.35, r1: 1.35, a0: 1, a1: 1,
+    center: 3, extent: 23, aligned: true
+  });
+
+  // Each question that passes lights one more ring.
+  var card = document.querySelector(".check-card");
+  if (!card) return;
+  var inputs = card.querySelectorAll("input[type=checkbox]");
+
+  function update() {
+    var passed = 0;
+    for (var i = 0; i < inputs.length; i++) if (inputs[i].checked) passed++;
+    var rings = progress ? progress.querySelectorAll(".ring") : [];
+    for (var j = 0; j < rings.length; j++) rings[j].classList.toggle("is-on", j < passed);
+    card.classList.toggle("is-complete", passed === inputs.length);
+  }
+
+  function reset() {
+    for (var i = 0; i < inputs.length; i++) inputs[i].checked = false;
+    update();
+  }
+
+  for (var i = 0; i < inputs.length; i++) inputs[i].addEventListener("change", update);
+  window.addEventListener("pageshow", reset);
+  reset();
+})();
+</script>
+</body>
+</html>
