@@ -503,6 +503,35 @@
     text-underline-offset: 0.2em;
   }
 
+  /* The last words: what we are, and where it comes from */
+  .farewell {
+    padding-top: clamp(4rem, 10vw, 6.5rem);
+    text-align: center;
+  }
+
+  .farewell-line {
+    margin: 0 0 1.75rem;
+    font-family: var(--display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 30, "WONK" 1;
+    font-weight: 760;
+    font-size: clamp(2.6rem, 1.4rem + 5vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .gratitude {
+    margin: 0 auto;
+    max-width: 30ch;
+    font-family: var(--display);
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-size: clamp(1.45rem, 1.15rem + 1.4vw, 2.3rem);
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
   .foot {
     display: flex;
     justify-content: center;
@@ -753,6 +782,11 @@
   </section>
 
 </main>
+
+<footer class="world--deep farewell measure">
+  <p class="farewell-line rv">Inward and <span class="shine">inclusive.</span></p>
+  <p class="gratitude rv" style="--rd: 120ms">With gratitude to Sadhguru, whose wisdom is the source of all we try to share.</p>
+</footer>
 
 <div class="foot" aria-hidden="true">
   <svg class="dots foot-mark" data-mark="2" focusable="false"></svg>
