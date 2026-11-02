@@ -5,26 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Foundation</title>
 <meta name="description" content="Read this before every song. If an idea doesn’t pass it, it doesn’t go out.">
-<meta name="theme-color" content="#1c2456">
+<meta property="og:title" content="Our Foundation">
+<meta property="og:description" content="Read this before every song. If an idea doesn’t pass it, it doesn’t go out.">
+<meta name="theme-color" content="#141a3e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2456'/%3E%3Ccircle cx='16' cy='16' r='3.6' fill='%23f4b23c'/%3E%3Cg fill='%23f4ebda'%3E%3Ccircle cx='16' cy='7.5' r='1.7'/%3E%3Ccircle cx='23.36' cy='11.75' r='1.7'/%3E%3Ccircle cx='23.36' cy='20.25' r='1.7'/%3E%3Ccircle cx='16' cy='24.5' r='1.7'/%3E%3Ccircle cx='8.64' cy='20.25' r='1.7'/%3E%3Ccircle cx='8.64' cy='11.75' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..800;1,400..800&display=swap">
-<noscript><style>.hero-pattern { display: none !important; }</style></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap">
+<script>document.documentElement.classList.add("js");</script>
+<noscript><style>.hero-pattern, .hint { display: none !important; }</style></noscript>
 <style>
-  /* Indigo and marigold: two dyes that belong to many cultures at once. */
+  /* One centre, many worlds: every section lives in its own colour,
+     and the mixing itself says we're one. */
   :root {
+    --night: #141a3e;
+    --deep: #10163a;
     --indigo: #1c2456;
-    --indigo-raised: #252f68;
-    --indigo-line: #3a4584;
-    --ivory: #f4ebda;
-    --mist: #c4c3d9;
+    --ivory: #f6efdd;
+    --cream: #f7edd6;
+    --cream-2: #fdf3e2;
+    --plum: #41173f;
+    --forest: #0e3a33;
     --marigold: #f4b23c;
-    --unlit: rgba(244, 235, 218, 0.22);
+    --pink: #ff7aa2;
+    --mint: #5bd6a2;
+    --sky: #7cc3ff;
+    --lilac: #b79bff;
+    --coral: #ff9a62;
     --serif: "Alegreya", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-    --measure: 40rem;
+    --display: "Fraunces", var(--serif);
+    --measure: 42rem;
     --gutter: 1.25rem;
-    --space: clamp(4rem, 9vw, 6.25rem);
     color-scheme: dark;
   }
 
@@ -34,24 +45,25 @@
 
   body {
     margin: 0;
-    background: var(--indigo);
+    background: var(--deep);
     color: var(--ivory);
     font-family: var(--serif);
     font-size: clamp(1.125rem, 1.04rem + 0.35vw, 1.25rem);
     line-height: 1.65;
     font-kerning: normal;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* A faint woven grain, so the indigo reads as cloth rather than a flat screen */
+  /* The woven grain stays: cloth, not a flat screen */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 20;
+    z-index: 40;
     pointer-events: none;
-    opacity: 0.07;
+    opacity: 0.06;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
   }
 
@@ -63,63 +75,46 @@
     padding-inline: var(--gutter);
   }
 
-  /* ---------- Opening ---------- */
+  /* ---------- Worlds ---------- */
 
-  .hero {
-    min-height: 92vh;
-    min-height: min(100svh, 54rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem var(--gutter) 3.5rem;
-    text-align: center;
+  .world {
+    position: relative;
+    background: var(--bg);
+    color: var(--ink);
+    padding-block: clamp(4.5rem, 10vw, 7.5rem);
   }
 
-  .hero-pattern {
-    display: block;
-    width: min(70vw, 23rem);
-    height: min(70vw, 23rem);
-    margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
-    overflow: visible;
+  .world--night  { --bg: var(--night);   --ink: var(--ivory);  --muted: #b9bcd9; --accent: var(--marigold); }
+  .world--dawn   { --bg: var(--cream);   --ink: #232850;       --muted: #50568a; --accent: #d9711f; color-scheme: light; }
+  .world--plum   { --bg: var(--plum);    --ink: #ffe9f0;       --muted: #d9a6c2; --accent: var(--pink); }
+  .world--band   { --bg: var(--marigold);--ink: var(--indigo); --muted: var(--indigo); --accent: var(--indigo); }
+  .world--forest { --bg: var(--forest);  --ink: #eaf7ee;       --muted: #a3cdb9; --accent: var(--mint); }
+  .world--cream  { --bg: var(--cream-2); --ink: #232850;       --muted: #50568a; --accent: #d9711f; color-scheme: light; }
+  .world--indigo { --bg: var(--indigo);  --ink: var(--ivory);  --muted: #c4c3d9; --accent: var(--marigold); }
+  .world--deep   { --bg: var(--deep);    --ink: var(--ivory);  --muted: #b9bcd9; --accent: var(--marigold); }
+
+  /* ---------- Type ---------- */
+
+  h1, h2, h3, .band-line {
+    font-family: var(--display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 30, "WONK" 1;
   }
-
-  .hero h1 {
-    margin: 0 0 1.25rem;
-    font-weight: 500;
-    font-size: clamp(3.25rem, 1.9rem + 5.8vw, 7rem);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-
-  .hero-sub {
-    margin: 0;
-    font-style: italic;
-    font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.55rem);
-    line-height: 1.45;
-    color: var(--mist);
-    text-wrap: balance;
-  }
-
-  .hero-sub span { display: block; }
-
-  /* ---------- Reading ---------- */
-
-  .section { padding-top: var(--space); }
 
   h2 {
+    --tilt: rotate(-1.2deg);
     margin: 0 0 1.5rem;
-    font-weight: 500;
-    font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    font-weight: 620;
+    font-size: clamp(2.2rem, 1.6rem + 2.6vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
     text-wrap: balance;
+    transform: var(--tilt);
   }
 
   h3 {
-    margin: 0 0 0.35rem;
-    font-weight: 500;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
     font-size: 1.3em;
     line-height: 1.3;
   }
@@ -128,15 +123,91 @@
   p:last-child { margin-bottom: 0; }
 
   .lede {
-    font-size: 1.3em;
+    font-size: 1.32em;
     line-height: 1.45;
-    margin-bottom: 1.1em;
+    margin-bottom: 1.05em;
   }
 
-  /* The journey: a real sequence, so it gets a path. Each step's mark widens. */
+  /* A hand-drawn underline in each world's own colour */
+  .squig {
+    display: block;
+    width: 5.25rem;
+    height: 0.6rem;
+    margin-top: 0.9rem;
+    color: var(--accent);
+    overflow: visible;
+  }
+
+  /* ---------- Opening ---------- */
+
+  .hero {
+    min-height: 92vh;
+    min-height: min(100svh, 56rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem var(--gutter) 4rem;
+    text-align: center;
+  }
+
+  .hero-pattern {
+    display: block;
+    width: min(72vw, 23rem);
+    height: min(72vw, 23rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    overflow: visible;
+  }
+
+  .hero h1 {
+    margin: 0 0 1.2rem;
+    font-weight: 580;
+    font-size: clamp(3.3rem, 1.9rem + 6.5vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .shine {
+    font-style: italic;
+    padding-right: 0.05em;
+    background: linear-gradient(100deg, var(--marigold) 5%, var(--coral) 50%, var(--pink) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-sub {
+    margin: 0;
+    font-style: italic;
+    font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.55rem);
+    line-height: 1.45;
+    color: var(--muted);
+    text-wrap: balance;
+  }
+
+  .hero-sub span { display: block; }
+
+  .hint {
+    margin-top: 3.2rem;
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+  }
+
+  .hint i {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.35;
+  }
+
+  /* ---------- The journey ---------- */
+
   .path {
     list-style: none;
-    margin: 2.5rem 0 0;
+    margin: 2.75rem 0 0;
     padding: 0;
   }
 
@@ -156,7 +227,7 @@
     top: 3.4rem;
     bottom: 0.65rem;
     left: calc(1.375rem - 1px);
-    border-left: 2px dotted var(--indigo-line);
+    border-left: 2px dotted color-mix(in srgb, var(--accent) 45%, transparent);
   }
 
   .step-mark {
@@ -168,7 +239,7 @@
   }
 
   .path h3 { grid-column: 2; grid-row: 1; margin-top: 0.3rem; }
-  .path p { grid-column: 2; grid-row: 2; color: var(--mist); }
+  .path p { grid-column: 2; grid-row: 2; color: var(--muted); }
 
   .aside {
     margin-top: 2.75rem;
@@ -179,14 +250,10 @@
 
   /* ---------- The one-line test ---------- */
 
-  .band {
-    position: relative;
+  .world--band {
     isolation: isolate;
     overflow: hidden;
-    margin-top: var(--space);
-    padding: clamp(5.5rem, 14vw, 10rem) var(--gutter);
-    background: var(--marigold);
-    color: var(--indigo);
+    padding-block: clamp(5.5rem, 14vw, 10rem);
     text-align: center;
   }
 
@@ -201,8 +268,9 @@
     transform: translate(-50%, -50%);
   }
 
-  .band h2 {
-    margin: 0 0 1.1rem;
+  .world--band h2 {
+    --tilt: none;
+    margin: 0 0 1.2rem;
     font-style: italic;
     font-weight: 500;
     font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.45rem);
@@ -210,13 +278,24 @@
   }
 
   .band-line {
+    --tilt: rotate(-1.5deg);
     margin: 0;
-    font-weight: 600;
-    font-size: clamp(2.75rem, 1.3rem + 6.4vw, 7rem);
-    line-height: 1;
-    letter-spacing: -0.025em;
+    font-weight: 760;
+    font-size: clamp(2.9rem, 1.2rem + 7vw, 7.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
     text-wrap: balance;
+    transform: var(--tilt);
   }
+
+  .band-line .and {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.55em;
+    padding-inline: 0.08em;
+  }
+
+  .band-line .incl { font-style: italic; }
 
   /* ---------- Lists ---------- */
 
@@ -240,41 +319,53 @@
     width: 0.45rem;
     height: 0.45rem;
     border-radius: 50%;
-    background: var(--marigold);
+    background: var(--accent);
   }
 
   .qualities { gap: 2.25rem; margin-top: 2.5rem; }
-  .qualities p { color: var(--mist); }
+  .qualities p { color: var(--muted); }
 
   .note {
     margin: 3rem 0 0;
-    padding: 1.25rem 1.5rem;
-    border-radius: 1rem;
-    background: var(--indigo-raised);
-    color: var(--mist);
+    padding: 1.3rem 1.5rem;
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, currentColor 9%, transparent);
+    color: var(--muted);
     font-size: 0.95em;
     line-height: 1.6;
   }
 
-  .note strong { color: var(--ivory); font-weight: 600; }
+  .note strong { color: var(--ink); font-weight: 600; }
 
-  /* Dashed, like open slots: these are the parts that change from song to song */
+  /* Stickers: each open slot in its own colour, slightly askew */
   .pills {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0 0 2rem;
+    gap: 0.9rem 0.7rem;
+    margin: 2.2rem 0;
     padding: 0;
   }
 
   .pills li {
-    padding: 0.35rem 0.9rem 0.45rem;
-    border: 1.5px dashed rgba(244, 235, 218, 0.42);
+    --r: 0deg;
+    padding: 0.5rem 1.25rem 0.6rem;
     border-radius: 999px;
-    font-size: 0.98em;
+    font-family: var(--display);
+    font-weight: 620;
+    font-size: 1.08em;
     line-height: 1.2;
+    color: var(--indigo);
+    box-shadow: 0 0.5rem 1.2rem -0.4rem rgba(20, 22, 60, 0.35);
+    transform: rotate(var(--r));
   }
+
+  .pills li:nth-child(1) { background: var(--marigold); --r: -2.5deg; --bd: 0s; }
+  .pills li:nth-child(2) { background: var(--pink);     --r: 1.8deg;  --bd: 0.6s; }
+  .pills li:nth-child(3) { background: var(--mint);     --r: -1.2deg; --bd: 1.2s; }
+  .pills li:nth-child(4) { background: var(--sky);      --r: 2.4deg;  --bd: 1.8s; }
+  .pills li:nth-child(5) { background: var(--lilac);    --r: -2deg;   --bd: 2.4s; }
+  .pills li:nth-child(6) { background: var(--coral);    --r: 1.2deg;  --bd: 3s; }
 
   .principles { gap: 1.15rem; }
   .principles strong { font-weight: 600; }
@@ -293,7 +384,7 @@
   .check-card {
     padding: clamp(1.5rem, 5vw, 2.75rem);
     border-radius: 1.5rem;
-    background: var(--indigo-raised);
+    background: #1b2254;
     transition: box-shadow 0.5s ease;
   }
 
@@ -302,13 +393,18 @@
   }
 
   .check-head {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1.1rem;
     margin-bottom: 1.25rem;
   }
 
-  .check-head h2 { margin: 0; }
+  .check-head h2 {
+    --tilt: none;
+    margin: 0;
+    font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.3rem);
+  }
 
   .progress {
     flex: none;
@@ -322,7 +418,7 @@
     padding: 0;
   }
 
-  .checks li + li { border-top: 1px solid var(--indigo-line); }
+  .checks li + li { border-top: 1px solid #333d7a; }
 
   .checks label {
     position: relative;
@@ -355,7 +451,7 @@
     width: 1.75rem;
     height: 1.75rem;
     margin-top: 0.05em;
-    border: 2px solid rgba(244, 235, 218, 0.45);
+    border: 2px solid rgba(246, 239, 221, 0.45);
     border-radius: 50%;
     transition: background-color 0.25s ease, border-color 0.25s ease;
   }
@@ -394,37 +490,60 @@
   .foot {
     display: flex;
     justify-content: center;
-    padding: clamp(4rem, 9vw, 6rem) 0 3.5rem;
+    padding: clamp(3rem, 8vw, 5rem) 0 3.5rem;
   }
 
   .foot-mark { width: 2.25rem; height: 2.25rem; }
 
   /* ---------- Dots ---------- */
 
-  .dots circle { fill: var(--ivory); }
+  .dots circle { fill: var(--ink); }
   .dots .warm circle,
-  .dots .dot-center { fill: var(--marigold); }
-  .halo-stop { stop-color: var(--marigold); }
-  .band-pattern circle { fill: var(--indigo); }
+  .dots .dot-center { fill: var(--accent); }
+  .halo-stop { stop-color: var(--accent); }
+  .band-pattern circle { fill: var(--ink); }
 
   .progress .ring circle {
-    fill: var(--unlit);
+    fill: color-mix(in srgb, var(--ivory) 22%, transparent);
     transition: fill 0.25s ease;
     transition-delay: calc(var(--d, 0) * 360ms);
   }
 
   .progress .ring.is-on circle { fill: var(--marigold); }
 
-  /* The one unprompted motion on the page: the circle forming, centre first */
+  /* ---------- Motion ---------- */
+
+  .js .rv {
+    opacity: 0;
+    transform: translateY(26px) var(--tilt, rotate(0deg));
+  }
+
+  .js .rv.in {
+    opacity: 1;
+    transform: var(--tilt, rotate(0deg));
+    transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--rd, 0ms);
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .hero-pattern .ring,
-    .hero-pattern .dot-center,
-    .hero-pattern .halo {
+    .hero-pattern .dot-center {
       transform-box: fill-box;
       transform-origin: center;
       animation: ring-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
       animation-delay: calc(150ms + var(--k, 0) * 90ms);
     }
+
+    /* The mandala turns, slower than the eye: alive, not busy */
+    .hero-pattern { animation: drift 240s linear infinite; }
+
+    .hero-pattern .halo { animation: fade-in 0.9s 0.2s both, breathe 7s 1.6s ease-in-out infinite alternate; }
+
+    .hint i { animation: blink 2s ease-in-out infinite; }
+    .hint i:nth-child(2) { animation-delay: 0.3s; }
+    .hint i:nth-child(3) { animation-delay: 0.6s; }
+
+    .pills li { animation: bob 4.5s ease-in-out var(--bd, 0s) infinite alternate; }
   }
 
   @keyframes ring-in {
@@ -432,7 +551,31 @@
     to { opacity: 1; transform: scale(1); }
   }
 
+  @keyframes drift { to { transform: rotate(1turn); } }
+
+  @keyframes fade-in { from { opacity: 0; } }
+
+  @keyframes breathe {
+    from { opacity: 0.65; }
+    to { opacity: 1; }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes bob {
+    from { transform: rotate(var(--r)) translateY(0); }
+    to { transform: rotate(var(--r)) translateY(-0.4rem); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    .js .rv {
+      opacity: 1;
+      transform: var(--tilt, none);
+      transition: none;
+    }
     .progress .ring circle,
     .box,
     .box::after,
@@ -442,31 +585,25 @@
   /* ---------- Print: ink on paper, checklist left blank ---------- */
 
   @media print {
-    :root {
-      --indigo: #ffffff;
-      --indigo-raised: #ffffff;
-      --indigo-line: #b9b9c6;
-      --ivory: #1c2456;
-      --mist: #3d4160;
-      --marigold: #9a5d00;
-      --unlit: #c9c9d4;
-    }
-    body { font-size: 11.5pt; }
+    body { background: #fff; color: #1c2456; font-size: 11.5pt; }
     body::after,
     .hero-pattern,
-    .band-pattern { display: none; }
+    .band-pattern,
+    .hint { display: none; }
+    .world { --bg: #fff; --ink: #1c2456; --muted: #3d4160; --accent: #9a5d00; padding-block: 2.25rem; }
+    .js .rv { opacity: 1; transform: none; }
     .hero { min-height: 0; padding: 0 0 1rem; }
-    .section { padding-top: 2.25rem; }
-    .band {
-      margin-top: 2.25rem;
-      padding: 1.75rem 0;
-      background: none;
-      color: #1c2456;
+    .shine { background: none; color: #1c2456; }
+    .world--band {
+      padding-block: 1.75rem;
       border-block: 1.5pt solid #1c2456;
     }
-    .note, .check-card { border: 1pt solid #b9b9c6; }
+    .pills li { background: none; border: 1pt solid #b9b9c6; box-shadow: none; transform: none; color: #1c2456; }
+    .note, .check-card { border: 1pt solid #b9b9c6; background: none; }
     .check-card { box-shadow: none !important; }
     .box { border-color: #1c2456; }
+    h2 { transform: none; }
+    .band-line { transform: none; }
     h2, h3 { break-after: avoid; }
     li, .note, .check-card { break-inside: avoid; }
   }
@@ -474,108 +611,127 @@
 </head>
 <body>
 
-<header class="hero">
+<svg style="display:none" aria-hidden="true">
+  <symbol id="squiggle" viewBox="0 0 84 12">
+    <path d="M2 8 C 10 2, 18 2, 26 7 S 42 11, 50 6 S 66 2, 82 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<header class="world world--night hero">
   <svg class="dots hero-pattern" aria-hidden="true" focusable="false"></svg>
-  <h1>Our Foundation</h1>
+  <h1>Our <span class="shine">Foundation</span></h1>
   <p class="hero-sub"><span>Read this before every song.</span> <span>If an idea doesn’t pass it, it doesn’t go out.</span></p>
+  <div class="hint" aria-hidden="true"><i></i><i></i><i></i></div>
 </header>
 
 <main>
 
-  <section class="section measure" aria-labelledby="why">
-    <h2 id="why">Why we’re here</h2>
-    <p class="lede">We are seekers. What we want is inclusiveness, because when people become inclusive, union can happen. That’s what yoga is.</p>
-    <p>The way there is inward, so our music exists to turn people inward.</p>
-    <p>We do it by giving, not taking, offering what we have: our joy and our love. To give them, we have to be them. Our songs can only carry what we are.</p>
-    <p>We’re not here to become big. If one song turns one person inward, it has done the whole job.</p>
+  <section class="world world--dawn" aria-labelledby="why">
+    <div class="measure">
+      <h2 id="why" class="rv">Why we’re here<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">We are seekers. What we want is inclusiveness, because when people become inclusive, union can happen. That’s what yoga is.</p>
+      <p class="rv">The way there is inward, so our music exists to turn people inward.</p>
+      <p class="rv">We do it by giving, not taking, offering what we have: our joy and our love. To give them, we have to be them. Our songs can only carry what we are.</p>
+      <p class="rv">We’re not here to become big. If one song turns one person inward, it has done the whole job.</p>
+    </div>
   </section>
 
-  <section class="section measure" aria-labelledby="journey">
-    <h2 id="journey">The journey</h2>
-    <ol class="path">
-      <li>
-        <svg class="dots step-mark" data-mark="0" aria-hidden="true" focusable="false"></svg>
-        <h3>First, turn inward.</h3>
-        <p>Most people aren’t asking the deeper questions yet. We start by turning them inward a little and showing them that the path is inward.</p>
-      </li>
-      <li>
-        <svg class="dots step-mark" data-mark="1" aria-hidden="true" focusable="false"></svg>
-        <h3>Then, seeking.</h3>
-        <p>Songs about the seeking itself: the why, the questions, the search for answers.</p>
-      </li>
-      <li>
-        <svg class="dots step-mark" data-mark="2" aria-hidden="true" focusable="false"></svg>
-        <h3>Over time, the whole path.</h3>
-        <p>Our channel, playlists and albums will hold all of it, and all of it will be inclusive.</p>
-      </li>
-    </ol>
-    <p class="aside">Spirituality isn’t only joy. Our songs can carry questions, struggle and longing, as long as they point inward.</p>
+  <section class="world world--plum" aria-labelledby="journey">
+    <div class="measure">
+      <h2 id="journey" class="rv">The journey<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <ol class="path">
+        <li class="rv">
+          <svg class="dots step-mark" data-mark="0" aria-hidden="true" focusable="false"></svg>
+          <h3>First, turn inward.</h3>
+          <p>Most people aren’t asking the deeper questions yet. We start by turning them inward a little and showing them that the path is inward.</p>
+        </li>
+        <li class="rv" style="--rd: 120ms">
+          <svg class="dots step-mark" data-mark="1" aria-hidden="true" focusable="false"></svg>
+          <h3>Then, seeking.</h3>
+          <p>Songs about the seeking itself: the why, the questions, the search for answers.</p>
+        </li>
+        <li class="rv" style="--rd: 240ms">
+          <svg class="dots step-mark" data-mark="2" aria-hidden="true" focusable="false"></svg>
+          <h3>Over time, the whole path.</h3>
+          <p>Our channel, playlists and albums will hold all of it, and all of it will be inclusive.</p>
+        </li>
+      </ol>
+      <p class="aside rv">Spirituality isn’t only joy. Our songs can carry questions, struggle and longing, as long as they point inward.</p>
+    </div>
   </section>
 
-  <section class="band" aria-labelledby="test">
+  <section class="world world--band" aria-labelledby="test">
     <svg class="dots band-pattern" aria-hidden="true" focusable="false"></svg>
-    <h2 id="test">Our one-line test</h2>
-    <p class="band-line">Inward and inclusive.</p>
+    <h2 id="test" class="rv">Our one-line test</h2>
+    <p class="band-line rv" style="--rd: 100ms">Inward <span class="and">and</span> <span class="incl">inclusive.</span></p>
   </section>
 
-  <section class="section measure" aria-labelledby="carries">
-    <h2 id="carries">What every song carries</h2>
-    <p class="lede">Spirituality doesn’t need a guru or a label. It’s simply how we are. Every song shows that.</p>
-    <ol class="dot-list qualities">
-      <li>
-        <h3>It points inward.</h3>
-        <p>Whatever it’s about (a person, nature, a moment, anything), it turns the listener toward themselves. Even a song that only asks a question looks inward for the answer.</p>
-      </li>
-      <li>
-        <h3>It widens the circle.</h3>
-        <p>It includes rather than divides: people, nature, even the parts of ourselves we push away.</p>
-      </li>
-      <li>
-        <h3>It shows, never tells.</h3>
-        <p>If a lesson needs a line to explain it, it’s a sermon. The listener should get there on their own.</p>
-      </li>
-      <li>
-        <h3>It never judges.</h3>
-        <p>No “you’re living wrong.”</p>
-      </li>
-    </ol>
-    <p class="note"><strong>On religion and gurus:</strong> any religion can appear as part of someone’s life. Gurus, and anything that would make us look like a guru’s channel, stay out for now. Later they may come in subtly, never as the highlight.</p>
+  <section class="world world--forest" aria-labelledby="carries">
+    <div class="measure">
+      <h2 id="carries" class="rv">What every song carries<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Spirituality doesn’t need a guru or a label. It’s simply how we are. Every song shows that.</p>
+      <ol class="dot-list qualities">
+        <li class="rv">
+          <h3>It points inward.</h3>
+          <p>Whatever it’s about (a person, nature, a moment, anything), it turns the listener toward themselves. Even a song that only asks a question looks inward for the answer.</p>
+        </li>
+        <li class="rv" style="--rd: 80ms">
+          <h3>It widens the circle.</h3>
+          <p>It includes rather than divides: people, nature, even the parts of ourselves we push away.</p>
+        </li>
+        <li class="rv" style="--rd: 160ms">
+          <h3>It shows, never tells.</h3>
+          <p>If a lesson needs a line to explain it, it’s a sermon. The listener should get there on their own.</p>
+        </li>
+        <li class="rv" style="--rd: 240ms">
+          <h3>It never judges.</h3>
+          <p>No “you’re living wrong.”</p>
+        </li>
+      </ol>
+      <p class="note rv"><strong>On religion and gurus:</strong> any religion can appear as part of someone’s life. Gurus, and anything that would make us look like a guru’s channel, stay out for now. Later they may come in subtly, never as the highlight.</p>
+    </div>
   </section>
 
-  <section class="section measure" aria-labelledby="free">
-    <h2 id="free">What’s free to change</h2>
-    <ul class="pills">
-      <li>Subject</li>
-      <li>Genre</li>
-      <li>Language</li>
-      <li>Country</li>
-      <li>Character</li>
-      <li>Setting</li>
-    </ul>
-    <p>Every song can live in a different world. Music from one culture with a character from another: the mixing itself says we’re one.</p>
-  </section>
-
-  <section class="section measure" aria-labelledby="true-title">
-    <h2 id="true-title">How we stay true</h2>
-    <ul class="dot-list principles">
-      <li><strong>Consistency:</strong> we show up for years, not months.</li>
-      <li><strong>Craft:</strong> every song has to work as a song first, one people want to replay.</li>
-      <li><strong>Integrity under pressure:</strong> when a song flops or takes off, we don’t chase the numbers. We come back to this page.</li>
-    </ul>
-    <p class="closing">This stays limitless only as long as we don’t need it to be big.</p>
-  </section>
-
-  <section class="section measure" aria-labelledby="before">
-    <div class="check-card">
-      <div class="check-head">
-        <svg class="dots progress" aria-hidden="true" focusable="false"></svg>
-        <h2 id="before">Before any song goes out</h2>
-      </div>
-      <ul class="checks">
-        <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Is it inward and inclusive?</span></label></li>
-        <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Does it show rather than tell, and stay free of judgment?</span></label></li>
-        <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Are we giving with this song, or wanting something back?</span></label></li>
+  <section class="world world--cream" aria-labelledby="free">
+    <div class="measure">
+      <h2 id="free" class="rv">What’s free to change<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <ul class="pills rv">
+        <li>Subject</li>
+        <li>Genre</li>
+        <li>Language</li>
+        <li>Country</li>
+        <li>Character</li>
+        <li>Setting</li>
       </ul>
+      <p class="rv">Every song can live in a different world. Music from one culture with a character from another: the mixing itself says we’re one.</p>
+    </div>
+  </section>
+
+  <section class="world world--indigo" aria-labelledby="true-title">
+    <div class="measure">
+      <h2 id="true-title" class="rv">How we stay true<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <ul class="dot-list principles">
+        <li class="rv"><strong>Consistency:</strong> we show up for years, not months.</li>
+        <li class="rv" style="--rd: 80ms"><strong>Craft:</strong> every song has to work as a song first, one people want to replay.</li>
+        <li class="rv" style="--rd: 160ms"><strong>Integrity under pressure:</strong> when a song flops or takes off, we don’t chase the numbers. We come back to this page.</li>
+      </ul>
+      <p class="closing rv">This stays limitless only as long as we don’t need it to be big.</p>
+    </div>
+  </section>
+
+  <section class="world world--deep" aria-labelledby="before">
+    <div class="measure">
+      <div class="check-card rv">
+        <div class="check-head">
+          <svg class="dots progress" aria-hidden="true" focusable="false"></svg>
+          <h2 id="before">Before any song goes out</h2>
+        </div>
+        <ul class="checks">
+          <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Is it inward and inclusive?</span></label></li>
+          <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Does it show rather than tell, and stay free of judgment?</span></label></li>
+          <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Are we giving with this song, or wanting something back?</span></label></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -672,10 +828,58 @@
     center: 3, extent: 23, aligned: true
   });
 
+  // Content drifts in as each world arrives.
+  var revealed = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add("in");
+          obs.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    for (var r = 0; r < revealed.length; r++) obs.observe(revealed[r]);
+  } else {
+    for (var r2 = 0; r2 < revealed.length; r2++) revealed[r2].classList.add("in");
+  }
+
   // Each question that passes lights one more ring.
   var card = document.querySelector(".check-card");
   if (!card) return;
   var inputs = card.querySelectorAll("input[type=checkbox]");
+  var head = card.querySelector(".check-head");
+  var prevPassed = 0;
+
+  // When all three pass, the circle overflows a little.
+  function burst() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!progress || !head || !head.appendChild) return;
+    var colors = ["#f4b23c", "#ff7aa2", "#5bd6a2", "#7cc3ff", "#b79bff", "#ff9a62"];
+    var pr = progress.getBoundingClientRect();
+    var hr = head.getBoundingClientRect();
+    var cx = pr.left - hr.left + pr.width / 2;
+    var cy = pr.top - hr.top + pr.height / 2;
+    for (var i = 0; i < 28; i++) {
+      var d = document.createElement("i");
+      var s = 4 + Math.random() * 6;
+      d.style.cssText = "position:absolute;border-radius:50%;pointer-events:none;z-index:2;" +
+        "left:" + cx.toFixed(1) + "px;top:" + cy.toFixed(1) + "px;" +
+        "width:" + s.toFixed(1) + "px;height:" + s.toFixed(1) + "px;background:" + colors[i % colors.length];
+      head.appendChild(d);
+      var a = Math.random() * TAU;
+      var v = 50 + Math.random() * 110;
+      var dx = Math.cos(a) * v;
+      var dy = Math.sin(a) * v - 40;
+      d.animate(
+        [
+          { transform: "translate(-50%,-50%)", opacity: 1 },
+          { transform: "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px) scale(0.4)", opacity: 0 }
+        ],
+        { duration: 800 + Math.random() * 600, easing: "cubic-bezier(0.15,0.6,0.3,1)" }
+      ).onfinish = (function (el) { return function () { el.remove(); }; })(d);
+    }
+  }
 
   function update() {
     var passed = 0;
@@ -683,6 +887,8 @@
     var rings = progress ? progress.querySelectorAll(".ring") : [];
     for (var j = 0; j < rings.length; j++) rings[j].classList.toggle("is-on", j < passed);
     card.classList.toggle("is-complete", passed === inputs.length);
+    if (passed === inputs.length && prevPassed < inputs.length) burst();
+    prevPassed = passed;
   }
 
   function reset() {
