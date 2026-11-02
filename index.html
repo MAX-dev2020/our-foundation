@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2456'/%3E%3Ccircle cx='16' cy='16' r='3.6' fill='%23f4b23c'/%3E%3Cg fill='%23f4ebda'%3E%3Ccircle cx='16' cy='7.5' r='1.7'/%3E%3Ccircle cx='23.36' cy='11.75' r='1.7'/%3E%3Ccircle cx='23.36' cy='20.25' r='1.7'/%3E%3Ccircle cx='16' cy='24.5' r='1.7'/%3E%3Ccircle cx='8.64' cy='20.25' r='1.7'/%3E%3Ccircle cx='8.64' cy='11.75' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400..800&family=Fraunces:opsz,wght@9..144,300..900&display=swap">
 <script>document.documentElement.classList.add("js");</script>
 <noscript><style>.hero-pattern, .hint { display: none !important; }</style></noscript>
 <style>
@@ -98,7 +98,7 @@
   h1, h2, h3, .band-line {
     font-family: var(--display);
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 30, "WONK" 1;
+    font-variation-settings: "SOFT" 30, "WONK" 0;
   }
 
   h2 {
@@ -169,7 +169,6 @@
   }
 
   .shine {
-    font-style: italic;
     padding-right: 0.05em;
     background: linear-gradient(100deg, var(--marigold) 5%, var(--coral) 50%, var(--pink) 95%);
     -webkit-background-clip: text;
@@ -179,7 +178,6 @@
 
   .hero-sub {
     margin: 0;
-    font-style: italic;
     font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.55rem);
     line-height: 1.45;
     color: var(--muted);
@@ -243,7 +241,6 @@
 
   .aside {
     margin-top: 2.75rem;
-    font-style: italic;
     font-size: 1.15em;
     line-height: 1.5;
   }
@@ -271,7 +268,6 @@
   .world--band h2 {
     --tilt: none;
     margin: 0 0 1.2rem;
-    font-style: italic;
     font-weight: 500;
     font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.45rem);
     letter-spacing: 0;
@@ -290,12 +286,10 @@
 
   .band-line .and {
     font-weight: 400;
-    font-style: italic;
     font-size: 0.55em;
     padding-inline: 0.08em;
   }
 
-  .band-line .incl { font-style: italic; }
 
   /* ---------- Lists ---------- */
 
@@ -373,7 +367,6 @@
   .closing {
     margin: 3.5rem 0 0;
     max-width: 28ch;
-    font-style: italic;
     font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem);
     line-height: 1.25;
     text-wrap: balance;
@@ -490,13 +483,11 @@
   .next {
     margin: 2.5rem 0 0;
     text-align: center;
-    font-style: italic;
     color: var(--muted);
   }
 
   .next a {
     font-family: var(--display);
-    font-style: normal;
     font-weight: 600;
     color: var(--marigold);
     text-decoration-thickness: 1.5px;
@@ -513,7 +504,7 @@
     margin: 0 0 1.75rem;
     font-family: var(--display);
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 30, "WONK" 1;
+    font-variation-settings: "SOFT" 30, "WONK" 0;
     font-weight: 760;
     font-size: clamp(2.6rem, 1.4rem + 5vw, 5.5rem);
     line-height: 1;
