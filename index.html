@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Foundation</title>
-<meta name="description" content="Read this before every song. If an idea doesn’t pass it, it doesn’t go out.">
+<meta name="description" content="Read this before anything we make. If an idea doesn’t pass it, it doesn’t go out.">
 <meta property="og:title" content="Our Foundation">
-<meta property="og:description" content="Read this before every song. If an idea doesn’t pass it, it doesn’t go out.">
+<meta property="og:description" content="Read this before anything we make. If an idea doesn’t pass it, it doesn’t go out.">
 <meta name="theme-color" content="#141a3e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2456'/%3E%3Ccircle cx='16' cy='16' r='3.6' fill='%23f4b23c'/%3E%3Cg fill='%23f4ebda'%3E%3Ccircle cx='16' cy='7.5' r='1.7'/%3E%3Ccircle cx='23.36' cy='11.75' r='1.7'/%3E%3Ccircle cx='23.36' cy='20.25' r='1.7'/%3E%3Ccircle cx='16' cy='24.5' r='1.7'/%3E%3Ccircle cx='8.64' cy='20.25' r='1.7'/%3E%3Ccircle cx='8.64' cy='11.75' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -201,7 +201,7 @@
     opacity: 0.35;
   }
 
-  /* ---------- The journey ---------- */
+  /* ---------- Who we're reaching: depths side by side, not steps ---------- */
 
   .path {
     list-style: none;
@@ -218,15 +218,6 @@
   }
 
   .path > li:last-child { padding-bottom: 0; }
-
-  .path > li:not(:last-child)::before {
-    content: "";
-    position: absolute;
-    top: 3.4rem;
-    bottom: 0.65rem;
-    left: calc(1.375rem - 1px);
-    border-left: 2px dotted color-mix(in srgb, var(--accent) 45%, transparent);
-  }
 
   .step-mark {
     grid-column: 1;
@@ -318,6 +309,9 @@
 
   .qualities { gap: 2.25rem; margin-top: 2.5rem; }
   .qualities p { color: var(--muted); }
+
+  .subhead { margin-top: 3.25rem; }
+  .subhead + .pills { margin-top: 1.1rem; }
 
   .note {
     margin: 3rem 0 0;
@@ -656,43 +650,55 @@
 <header class="world world--night hero">
   <svg class="dots hero-pattern" aria-hidden="true" focusable="false"></svg>
   <h1>Our <span class="shine">Foundation</span></h1>
-  <p class="hero-sub"><span>Read this before every song.</span> <span>If an idea doesn’t pass it, it doesn’t go out.</span></p>
+  <p class="hero-sub"><span>Read this before anything we make.</span> <span>If an idea doesn’t pass it, it doesn’t go out.</span></p>
   <div class="hint" aria-hidden="true"><i></i><i></i><i></i></div>
 </header>
 
 <main>
 
-  <section class="world world--dawn" aria-labelledby="why">
+  <section class="world world--dawn" aria-labelledby="vision">
     <div class="measure">
-      <h2 id="why" class="rv">Why we’re here<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
-      <p class="lede rv">We are seekers. What we want is inclusiveness, because when people become inclusive, union can happen. That’s what yoga is.</p>
-      <p class="rv">The way there is inward, so our music exists to turn people inward.</p>
-      <p class="rv">We do it by giving, not taking, offering what we have: our joy and our love. To give them, we have to be them. Our songs can only carry what we are.</p>
-      <p class="rv">We’re not here to become big. If one song turns one person inward, it has done the whole job.</p>
+      <h2 id="vision" class="rv">Our vision<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Turn people inward through music, stories and video, made with the help of AI and offered to everyone.</p>
+      <p class="rv">We make songs, music videos, stories told through AI video, and social media content. Every piece has one job: to turn the person who meets it toward themselves.</p>
+      <p class="rv">If one piece turns one person inward, it has done the whole job.</p>
     </div>
   </section>
 
-  <section class="world world--plum" aria-labelledby="journey">
+  <section class="world world--indigo" aria-labelledby="why">
     <div class="measure">
-      <h2 id="journey" class="rv">The journey<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
-      <ol class="path">
+      <h2 id="why" class="rv">Why we’re here<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Most people never look inward, and a talk or a teaching won’t reach them. A song, a story or a short video can, because people already welcome these into their lives every day.</p>
+      <p class="rv">We are seekers ourselves. What we want is inclusiveness, because when people become inclusive, union can happen. That’s what yoga is, and the way there is inward.</p>
+      <p class="rv">We do it by giving, not taking, offering what we have: our joy and our love. To give them, we have to be them. Our work can only carry what we are.</p>
+      <p class="rv">We’re not here to become big. We’re here to give.</p>
+    </div>
+  </section>
+
+  <section class="world world--plum" aria-labelledby="reaching">
+    <div class="measure">
+      <h2 id="reaching" class="rv">Who we’re reaching<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Our audience is global and multicultural. Above all, it’s people who don’t come from this culture and don’t yet know there’s something beyond what they see.</p>
+      <p class="rv">We also reach believers of every faith, meeting them inside their own lives and traditions. Most haven’t started looking inward yet, so our work meets them where they are.</p>
+      <p class="rv">This isn’t a set of steps to take in order. Our work reaches people at different depths, side by side, and anyone can meet any piece at any time.</p>
+      <ul class="path">
         <li class="rv">
           <svg class="dots step-mark" data-mark="0" aria-hidden="true" focusable="false"></svg>
-          <h3>First, turn inward.</h3>
-          <p>Most people aren’t asking the deeper questions yet. We start by turning them inward a little and showing them that the path is inward.</p>
+          <h3>Turning inward.</h3>
+          <p>For people not asking the deeper questions yet: a gentle turn toward themselves, and a hint that the path is inward. Most of our early work is this.</p>
         </li>
         <li class="rv" style="--rd: 120ms">
           <svg class="dots step-mark" data-mark="1" aria-hidden="true" focusable="false"></svg>
-          <h3>Then, seeking.</h3>
-          <p>Songs about the seeking itself: the why, the questions, the search for answers.</p>
+          <h3>Seeking.</h3>
+          <p>For people already asking: pieces about the seeking itself, the why, the questions, the search for answers.</p>
         </li>
         <li class="rv" style="--rd: 240ms">
           <svg class="dots step-mark" data-mark="2" aria-hidden="true" focusable="false"></svg>
-          <h3>Over time, the whole path.</h3>
-          <p>Our channel, playlists and albums will hold all of it, and all of it will be inclusive.</p>
+          <h3>The whole path.</h3>
+          <p>Over the years, our channel, playlists and albums come to hold all of it, and all of it stays inclusive.</p>
         </li>
-      </ol>
-      <p class="aside rv">Spirituality isn’t only joy. Our songs can carry questions, struggle and longing, as long as they point inward.</p>
+      </ul>
+      <p class="aside rv">Spirituality isn’t only joy. Our work can carry questions, struggle and longing, as long as they point inward.</p>
     </div>
   </section>
 
@@ -702,14 +708,85 @@
     <p class="band-line rv" style="--rd: 100ms">Inward <span class="and">and</span> <span class="incl">inclusive.</span></p>
   </section>
 
+  <section class="world world--cream" aria-labelledby="make">
+    <div class="measure">
+      <h2 id="make" class="rv">What we make<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Four kinds of work. They feed each other, and every one of them has to pass the same test.</p>
+      <ul class="dot-list qualities">
+        <li class="rv">
+          <h3>Music</h3>
+          <p>AI-assisted songs in any genre, language or culture. The heart of the work: something people want to replay.</p>
+        </li>
+        <li class="rv" style="--rd: 80ms">
+          <h3>Music videos</h3>
+          <p>AI-made visuals for our songs. They give a song a world and carry it further.</p>
+        </li>
+        <li class="rv" style="--rd: 160ms">
+          <h3>Stories</h3>
+          <p>Stories told through AI video, on their own or behind a song. They let people arrive at an insight through a character, not a lecture.</p>
+        </li>
+        <li class="rv" style="--rd: 240ms">
+          <h3>Social media</h3>
+          <p>Short pieces cut from the rest or built around it. It’s where most people first meet us, and it points them to the full work.</p>
+        </li>
+      </ul>
+      <h3 id="free" class="subhead rv">What’s free to change</h3>
+      <ul class="pills rv">
+        <li>Subject</li>
+        <li>Genre</li>
+        <li>Language</li>
+        <li>Country</li>
+        <li>Character</li>
+        <li>Setting</li>
+      </ul>
+      <p class="rv">Every piece can live in a different world. Music from one culture with a character from another: the mixing itself says we’re one.</p>
+    </div>
+  </section>
+
+  <section class="world world--plum" aria-labelledby="experiment">
+    <div class="measure">
+      <h2 id="experiment" class="rv">We experiment<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Our work can be weird, unexpected and unlike anything else out there, because that’s often what makes a stranger stop and feel something.</p>
+      <ul class="dot-list qualities">
+        <li class="rv">
+          <h3>Try different things.</h3>
+          <p>New genres, formats, visual styles, ways of telling a story, mixes of cultures. No idea is too strange to try.</p>
+        </li>
+        <li class="rv" style="--rd: 80ms">
+          <h3>Push past our comfort zone.</h3>
+          <p>If something feels safe and familiar to us, that’s a reason to go further, not to stop.</p>
+        </li>
+        <li class="rv" style="--rd: 160ms">
+          <h3>Learn from what doesn’t land.</h3>
+          <p>An experiment that misses still teaches us something. We keep going.</p>
+        </li>
+      </ul>
+      <p class="aside rv">The one thing that never changes is the test. However strange a piece gets, it still has to be inward and inclusive.</p>
+    </div>
+  </section>
+
+  <section class="world world--dawn" aria-labelledby="ai">
+    <div class="measure">
+      <h2 id="ai" class="rv">How we use AI<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">AI is our instrument, not our voice.</p>
+      <p class="rv">It lets a small team make songs, videos and stories at a quality that once needed studios and film crews. What the work carries still comes from us.</p>
+      <ul class="dot-list principles">
+        <li class="rv"><strong>We bring the intention; AI helps with the craft.</strong> The idea, the feeling and the inward turn come from us. AI helps us shape them.</li>
+        <li class="rv" style="--rd: 80ms"><strong>Human judgment decides what goes out.</strong> Nothing goes out because AI made it easy. Every piece passes our test first.</li>
+        <li class="rv" style="--rd: 160ms"><strong>Ease is not a reason to make more.</strong> AI can make without end. We make fewer pieces, each one worth replaying.</li>
+        <li class="rv" style="--rd: 240ms"><strong>We’re honest about how we make things.</strong> We don’t hide that our work is AI-assisted.</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="world world--forest" aria-labelledby="carries">
     <div class="measure">
-      <h2 id="carries" class="rv">What every song carries<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
-      <p class="lede rv">Spirituality doesn’t need a guru or a label. It’s simply how we are. Every song shows that.</p>
+      <h2 id="carries" class="rv">What every piece carries<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <p class="lede rv">Spirituality doesn’t need a guru or a label. It’s simply how we are. Every song, video, story and post shows that.</p>
       <ol class="dot-list qualities">
         <li class="rv">
           <h3>It points inward.</h3>
-          <p>Whatever it’s about (a person, nature, a moment, anything), it turns the listener toward themselves. Even a song that only asks a question looks inward for the answer.</p>
+          <p>Whatever it’s about (a person, nature, a moment, anything), it turns the person toward themselves. Even a piece that only asks a question looks inward for the answer.</p>
         </li>
         <li class="rv" style="--rd: 80ms">
           <h3>It widens the circle.</h3>
@@ -717,7 +794,7 @@
         </li>
         <li class="rv" style="--rd: 160ms">
           <h3>It shows, never tells.</h3>
-          <p>If a lesson needs a line to explain it, it’s a sermon. The listener should get there on their own.</p>
+          <p>If a lesson needs a line to explain it, it’s a sermon. People should get there on their own.</p>
         </li>
         <li class="rv" style="--rd: 240ms">
           <h3>It never judges.</h3>
@@ -728,18 +805,16 @@
     </div>
   </section>
 
-  <section class="world world--cream" aria-labelledby="free">
+  <section class="world world--cream" aria-labelledby="not">
     <div class="measure">
-      <h2 id="free" class="rv">What’s free to change<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
-      <ul class="pills rv">
-        <li>Subject</li>
-        <li>Genre</li>
-        <li>Language</li>
-        <li>Country</li>
-        <li>Character</li>
-        <li>Setting</li>
+      <h2 id="not" class="rv">What we’re not<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
+      <ul class="dot-list principles">
+        <li class="rv"><strong>Not a content farm.</strong> Volume is never the goal.</li>
+        <li class="rv" style="--rd: 80ms"><strong>Not a preaching channel.</strong> We don’t explain, instruct or lecture.</li>
+        <li class="rv" style="--rd: 160ms"><strong>Not a guru’s channel.</strong> And not tied to any one religion.</li>
+        <li class="rv" style="--rd: 240ms"><strong>Not chasing the numbers.</strong> Trends, views and followers aren’t what we’re after.</li>
+        <li class="rv" style="--rd: 320ms"><strong>Not here to take.</strong> We ask for nothing back for what we give.</li>
       </ul>
-      <p class="rv">Every song can live in a different world. Music from one culture with a character from another: the mixing itself says we’re one.</p>
     </div>
   </section>
 
@@ -748,9 +823,10 @@
       <h2 id="true-title" class="rv">How we stay true<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
       <ul class="dot-list principles">
         <li class="rv"><strong>Consistency:</strong> we show up for years, not months.</li>
-        <li class="rv" style="--rd: 80ms"><strong>Craft:</strong> every song has to work as a song first, one people want to replay.</li>
-        <li class="rv" style="--rd: 160ms"><strong>Integrity under pressure:</strong> when a song flops or takes off, we don’t chase the numbers. We come back to this page.</li>
+        <li class="rv" style="--rd: 80ms"><strong>Craft:</strong> every piece has to work on its own terms first. A song people replay, a story people feel, a video people watch to the end.</li>
+        <li class="rv" style="--rd: 160ms"><strong>Integrity under pressure:</strong> when something flops or takes off, we don’t chase the numbers. We come back to this page.</li>
       </ul>
+      <p class="note rv"><strong>What success looks like:</strong> not reach or follower counts. It’s people telling us a song or a story made them stop and look within, people coming back to our work again and again, and a body of work that, over the years, walks the whole path.</p>
       <p class="closing rv">This stays limitless only as long as we don’t need it to be big.</p>
     </div>
   </section>
@@ -760,12 +836,12 @@
       <div class="check-card rv">
         <div class="check-head">
           <svg class="dots progress" aria-hidden="true" focusable="false"></svg>
-          <h2 id="before">Before any song goes out</h2>
+          <h2 id="before">Before anything goes out</h2>
         </div>
         <ul class="checks">
           <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Is it inward and inclusive?</span></label></li>
           <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Does it show rather than tell, and stay free of judgment?</span></label></li>
-          <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Are we giving with this song, or wanting something back?</span></label></li>
+          <li><label><input type="checkbox" autocomplete="off"><span class="box" aria-hidden="true"></span><span>Are we giving with this piece, or wanting something back?</span></label></li>
         </ul>
       </div>
       <p class="next rv">How we make every song, from lyrics to release: <a href="song-playbook.html">Song Playbook →</a></p>
