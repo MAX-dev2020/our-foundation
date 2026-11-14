@@ -507,9 +507,26 @@
   .restyle figcaption { padding: 0 1.5rem 1.6rem; }
   .restyle figcaption p:last-child { color: var(--muted); }
 
+  /* A song cover, big, with the note bloom in its corner as in the brand guide */
+  .cover-shot { position: relative; }
+  .cover-shot img { display: block; width: 100%; height: auto; }
+
+  .cover-bloom {
+    position: absolute;
+    left: 4.5%;
+    top: 4.5%;
+    width: 19%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    color: #fff;
+    --acc: #ff3b4f;
+    filter: drop-shadow(0 0 3px rgba(255, 59, 79, 0.95)) drop-shadow(0 0 8px rgba(79, 107, 255, 0.6));
+  }
+
   @media (min-width: 48rem) {
     .restyle { grid-template-columns: minmax(0, 24rem) 1fr; }
     .restyle figcaption { padding: 2rem 2.5rem 2rem 0; }
+    .restyle--cover { grid-template-columns: minmax(0, 32rem) 1fr; }
   }
 
   .giving {
@@ -1049,6 +1066,17 @@
           </div>
         </li>
       </ul>
+      <figure class="restyle restyle--cover rv">
+        <div class="cover-shot">
+          <img src="spark-in-my-vein-cover.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Spark in My Vein cover art: a figure falling upside down through red petals and glowing blue windows, with the note bloom glowing in the top-left corner and the song title at the bottom right.">
+          <svg class="cover-bloom" viewBox="0 20 200 150" aria-hidden="true" focusable="false"><use href="#ih-bloom"/></svg>
+        </div>
+        <figcaption>
+          <p class="kit-tag">On a song cover</p>
+          <h3>Spark in My Vein</h3>
+          <p>The note bloom sits small in the top corner, glowing in the song’s own colours. The artwork stays the star; the bloom quietly signs it as ours.</p>
+        </figcaption>
+      </figure>
       <figure class="restyle rv">
         <img src="flower-head-3d.webp" width="790" height="790" loading="lazy" decoding="async" alt="The flower-head made in soft 3D: a real Brahma Kamal for a head, a knitted turtleneck under the denim jacket, the world balanced on one finger and a worn blue electric guitar, in front of the orange sun.">
         <figcaption>
