@@ -478,6 +478,20 @@
   .kit-body p { color: var(--muted); font-size: 0.95em; line-height: 1.55; }
   .kit-body p.kit-tag { color: var(--accent); }
 
+  /* The full brand guide: a preview that opens the high-res PDF */
+  .guide { margin: 3rem 0 0; }
+
+  .guide a {
+    display: block;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem -1.5rem rgba(0, 0, 0, 0.6);
+  }
+
+  .guide a:focus-visible { outline: 2px solid var(--marigold); outline-offset: 4px; }
+
+  .guide img { display: block; width: 100%; height: auto; }
+
   .giving {
     display: block;
     width: 6.5rem;
@@ -1016,6 +1030,10 @@
         </li>
       </ul>
       <p class="note rv"><strong>The rule:</strong> the official brand image always carries everything: the bloom head, the world held up, the electric guitar and the denim jacket, exactly as at the top of this page. Everywhere else he can show up differently: just the bloom, just the hand holding the world, a new outfit, any art style, any colour. Logo and icon never change.</p>
+      <figure class="guide rv">
+        <a href="inner-hum-brand-guide.pdf"><img src="inner-hum-brand-guide.webp" width="2000" height="1750" loading="lazy" decoding="async" alt="The Inner Hum brand system: the ih mark, the note bloom and the flower-head, where each one goes, the rule, our colours and our type."></a>
+      </figure>
+      <p class="next rv">Everything in one place, in high resolution: <a href="inner-hum-brand-guide.pdf">Brand guide (PDF) →</a></p>
     </div>
   </section>
 
