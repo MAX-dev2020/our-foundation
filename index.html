@@ -492,6 +492,26 @@
 
   .guide img { display: block; width: 100%; height: auto; }
 
+  /* The same character in another art style */
+  .restyle {
+    margin: 2.5rem 0 0;
+    display: grid;
+    gap: 1.4rem 2.5rem;
+    align-items: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #1b2254;
+  }
+
+  .restyle img { display: block; width: 100%; height: auto; }
+  .restyle figcaption { padding: 0 1.5rem 1.6rem; }
+  .restyle figcaption p:last-child { color: var(--muted); }
+
+  @media (min-width: 48rem) {
+    .restyle { grid-template-columns: minmax(0, 24rem) 1fr; }
+    .restyle figcaption { padding: 2rem 2.5rem 2rem 0; }
+  }
+
   .giving {
     display: block;
     width: 6.5rem;
@@ -1029,9 +1049,17 @@
           </div>
         </li>
       </ul>
+      <figure class="restyle rv">
+        <img src="flower-head-3d.webp" width="790" height="790" loading="lazy" decoding="async" alt="The flower-head made in soft 3D: a real Brahma Kamal for a head, a knitted turtleneck under the denim jacket, the world balanced on one finger and a worn blue electric guitar, in front of the orange sun.">
+        <figcaption>
+          <p class="kit-tag">Another style</p>
+          <h3>Same character, a new world</h3>
+          <p>Here he’s made in soft 3D, with a knitted turtleneck under the denim jacket. The bloom head, the world held up and the guitar are all still there, so he’s still him. Every song can dress him in its own style.</p>
+        </figcaption>
+      </figure>
       <p class="note rv"><strong>The rule:</strong> the official brand image always carries everything: the bloom head, the world held up, the electric guitar and the denim jacket, exactly as at the top of this page. Everywhere else he can show up differently: just the bloom, just the hand holding the world, a new outfit, any art style, any colour. Logo and icon never change.</p>
       <figure class="guide rv">
-        <a href="inner-hum-brand-guide.pdf"><img src="inner-hum-brand-guide.webp" width="2000" height="1750" loading="lazy" decoding="async" alt="The Inner Hum brand system: the ih mark, the note bloom and the flower-head, where each one goes, the rule, our colours and our type."></a>
+        <a href="inner-hum-brand-guide.pdf"><img src="inner-hum-brand-guide.webp" width="2000" height="1844" loading="lazy" decoding="async" alt="The Inner Hum brand system: the ih mark, the note bloom and the flower-head, where each one goes, the rule, our colours and our type."></a>
       </figure>
       <p class="next rv">Everything in one place, in high resolution: <a href="inner-hum-brand-guide.pdf">Brand guide (PDF) →</a></p>
     </div>
