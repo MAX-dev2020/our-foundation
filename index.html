@@ -567,6 +567,11 @@
 
   .principles { gap: 1.15rem; }
   .principles strong { font-weight: 600; }
+  .kinds { gap: 1.5rem; }
+  .kinds ul { list-style: none; margin: 0.35rem 0 0; padding: 0; display: grid; gap: 0.3rem; color: var(--muted); }
+  .kinds ul li { padding-left: 1.05rem; position: relative; }
+  .kinds ul li::before { content: "–"; position: absolute; left: 0; color: var(--accent); }
+  .kinds b { font-weight: 600; color: var(--ink); }
 
   .closing {
     margin: 3.5rem 0 0;
@@ -1224,13 +1229,69 @@
       </ul>
 
       <h3 class="subhead rv">What we put out</h3>
+      <ul class="dot-list principles kinds">
+        <li class="rv"><strong>Music</strong>
+          <ul>
+            <li>Songs</li>
+            <li>Music videos</li>
+            <li>Song clips with lyrics</li>
+            <li>Hour-long calm music</li>
+          </ul>
+        </li>
+        <li class="rv" style="--rd: 80ms"><strong>Stories</strong>
+          <ul>
+            <li><b>Today’s situations:</b> things happening in people’s lives and in the world</li>
+            <li><b>History:</b> real events and people from the past</li>
+            <li><b>Indian epics and Puranas:</b> Ramayana, Mahabharata, Shiva, Vishnu and Devi Puranas</li>
+            <li><b>World mythologies and traditions:</b> Greek, Zen, Sufi, Taoist, Biblical, Buddhist and others</li>
+            <li>Longer stories</li>
+          </ul>
+        </li>
+        <li class="rv" style="--rd: 160ms"><strong>Spirituality</strong>
+          <ul>
+            <li><b>Seeking:</b> what it is, why people start, the questions behind it</li>
+            <li>One spiritual idea explained plainly</li>
+          </ul>
+        </li>
+        <li class="rv" style="--rd: 240ms"><strong>Yoga and meditation</strong>
+          <ul>
+            <li>Yoga</li>
+            <li>Meditation</li>
+            <li><b>Content around them:</b> one-minute experiments, common questions, what people get wrong</li>
+          </ul>
+        </li>
+        <li class="rv" style="--rd: 320ms"><strong>Posts</strong>
+          <ul>
+            <li>Question cards</li>
+            <li>Carousels</li>
+          </ul>
+        </li>
+        <li class="rv" style="--rd: 400ms"><strong>Community</strong>
+          <ul>
+            <li>Replies to comments</li>
+            <li>How we made it</li>
+            <li>Monthly compilation</li>
+          </ul>
+        </li>
+        <li class="rv" style="--rd: 480ms"><strong>Not decided yet</strong>
+          <ul>
+            <li>A word from another language that names an inner state</li>
+            <li>Wonder videos: the universe, time, the body</li>
+            <li>Comedy sketches with the mascot</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="subhead rv">What stays the same</h3>
+      <p class="rv">Our stories, moods and motion can change freely, and the motion can grow with our budget, from stop-motion to full AI video. These stay in place so the page always looks like one channel:</p>
       <ul class="dot-list principles">
-        <li class="rv"><strong>Songs, in any genre.</strong> We write the lyrics, make the music with AI and finish every track ourselves. One new song a month.</li>
-        <li class="rv" style="--rd: 80ms"><strong>A music video for every song.</strong> Each one is also cut into short clips.</li>
-        <li class="rv" style="--rd: 160ms"><strong>Short stories, 30 to 60 seconds.</strong> Tales from every tradition, Zen, Sufi and many others, and from modern life, told funny, smart, quirky or weird.</li>
-        <li class="rv" style="--rd: 240ms"><strong>The flower-head in modern life.</strong> A repeating series where he meets the things we all meet: the phone, exams, heartbreak, boredom.</li>
-        <li class="rv" style="--rd: 320ms"><strong>A longer story, three to five minutes.</strong> Now and then, when a story needs the room.</li>
-        <li class="rv" style="--rd: 400ms"><strong>How we made it.</strong> Short looks behind a song or a story, so people see the humans making it.</li>
+        <li class="rv"><strong>Covers:</strong> one template for every post.</li>
+        <li class="rv" style="--rd: 80ms"><strong>Captions in videos:</strong> same font, position and highlight colour.</li>
+        <li class="rv" style="--rd: 160ms"><strong>Colours:</strong> the same few on every cover and text element.</li>
+        <li class="rv" style="--rd: 240ms"><strong>The Brahma Kamal:</strong> somewhere in every piece.</li>
+        <li class="rv" style="--rd: 320ms"><strong>The ending:</strong> same two seconds and the same hum.</li>
+        <li class="rv" style="--rd: 400ms"><strong>Art style:</strong> same within a content type, different between types.</li>
+        <li class="rv" style="--rd: 480ms"><strong>Profile picture and bio:</strong> the mascot, and one clear line saying what we make.</li>
       </ul>
 
       <h3 class="subhead rv">Where it lives</h3>
