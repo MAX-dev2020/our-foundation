@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap">
-<script>document.documentElement.classList.add("js");</script>
+<script>document.documentElement.classList.add("js"); setTimeout(function () { if (!window.ihReady) document.documentElement.classList.remove("js"); }, 3000);</script>
 <noscript><style>.hero-pattern, .hint { display: none !important; }</style></noscript>
 <style>
   /* Six colours, one typeface. Every section sits on its own handmade surface:
@@ -40,7 +40,7 @@
 
   *, *::before, *::after { box-sizing: border-box; }
 
-  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scrollbar-color: var(--orange) var(--denim); }
 
   body {
     margin: 0;
@@ -112,8 +112,9 @@
   .tx-grain .tex { background-image: var(--grain-heavy); }
 
   /* 2. Painted wash: uneven patches of paint */
-  .tx-wash .tex { background: var(--wash-light) center / 100% 100% no-repeat; }
-  .tx-wash-dark .tex { background: var(--wash-dark) center / 100% 100% no-repeat; }
+  /* never squeezed narrower than 52rem, so the patches stay patches on a phone */
+  .tx-wash .tex { background: var(--wash-light) center / max(100%, 52rem) 100% no-repeat; }
+  .tx-wash-dark .tex { background: var(--wash-dark) center / max(100%, 52rem) 100% no-repeat; }
 
   /* 3. Riso print: two dot screens a little out of register, and a two-colour heading */
   .tx-riso .tex {
@@ -377,7 +378,7 @@
 
   .hero h1 {
     margin: 0 0 0.8rem;
-    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.9rem);
+    font-size: clamp(2.2rem, 1.6rem + 2.6vw, 3.6rem);
     line-height: 1.1;
     letter-spacing: -0.01em;
     text-wrap: balance;
@@ -529,8 +530,26 @@
   .qualities { gap: 2.25rem; margin-top: 2.5rem; }
   .qualities p { color: var(--muted); }
 
-  .subhead { margin-top: 3.25rem; }
+  /* Subheadings open a chapter: more air above than below, and their own short squiggle */
+  .subhead { margin-top: 4.5rem; margin-bottom: 1rem; }
+  .subhead .squig { width: 3.4rem; height: 0.45rem; margin-top: 0.55rem; }
   .subhead + .pills { margin-top: 1.1rem; }
+
+  /* A linked heading lands clear of the top edge */
+  h2[id], h3[id] { scroll-margin-top: 5rem; }
+
+  /* Lead points sit under the lede as plain statements, a step below the chapter headings */
+  .lead-points > li { padding-left: 0; }
+  .lead-points > li::before { content: none; }
+  .lead-points h3 { font-size: 1.15em; }
+
+  /* Numbered steps: the numeral hangs in the margin and is the only marker */
+  .steps > li { padding-left: 1.9rem; }
+  .steps > li::before { content: none; }
+  .steps .n { position: absolute; left: 0; }
+
+  .targets .dot-list { margin-top: 0.8rem; }
+  .targets strong { color: var(--ink); }
 
   /* Notes are small panes of glass */
   .note {
@@ -646,6 +665,21 @@
     --acc: var(--orange);
   }
 
+  /* On a phone the three pieces lie sideways: small art at left, words at right */
+  @media (max-width: 30rem) {
+    .kit-card { flex-direction: row; }
+    .kit-art { flex: none; width: 6.5rem; height: auto; border-radius: 1.3rem 0 0 1.3rem; }
+    .kit .kit-art .k-ih { width: 3.2rem; height: 3.6rem; }
+    .kit .kit-art .k-bloom { width: 4.6rem; height: 3.45rem; }
+    .kit-body { padding: 1.1rem 1.15rem 1.25rem; }
+
+    /* The bloom sits on the line of its heading, so the paragraph gets the full width */
+    .path > li { grid-template-columns: 2.9rem 1fr; column-gap: 0.75rem; }
+    .step-mark { grid-row: 1; align-self: center; width: 2.9rem; height: 1.75rem; }
+    .path h3 { margin-top: 0; }
+    .path p { grid-column: 1 / -1; margin-top: 0.35rem; }
+  }
+
   .kit-art .k-ih { width: 6.4rem; height: 7.2rem; }
   .kit-art .k-bloom { width: 9.5rem; height: 7.1rem; }
   .kit-art .k-face { width: 100%; height: 100%; }
@@ -662,7 +696,7 @@
   }
 
   .kit-body p { color: var(--muted); font-size: 0.95em; line-height: 1.55; }
-  .kit-body p.kit-tag { color: var(--accent); }
+  .kit-body p.kit-tag { color: var(--accent); font-size: 0.78em; }
 
   /* The full brand guide: a preview that opens the high-res PDF */
   .guide { margin: 3rem 0 0; }
@@ -729,6 +763,11 @@
   .kinds ul li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 0.5rem; height: 2px; border-radius: 1px; background: var(--accent); }
   .kinds b { color: var(--ink); }
 
+  @media (min-width: 48rem) {
+    .kinds { display: block; columns: 2; column-gap: 2.75rem; }
+    .kinds > li { break-inside: avoid; margin-bottom: 1.5rem; }
+  }
+
   .closing {
     margin: 3.5rem 0 0;
     max-width: 28ch;
@@ -765,13 +804,16 @@
   .check-head h2 {
     --tilt: none;
     margin: 0;
-    font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.3rem);
+  }
+
+  @media (max-width: 30rem) {
+    .check-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   }
 
   .progress {
     flex: none;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 
   .checks {
@@ -858,6 +900,8 @@
   }
 
   .next a {
+    display: inline-block;
+    padding-block: 0.6rem;
     font-family: var(--serif);
     font-weight: 700;
     color: var(--ink);
@@ -917,7 +961,7 @@
     transition-delay: calc(var(--d, 0) * 360ms);
   }
 
-  .progress .ring.is-on circle { fill: var(--orange); }
+  .progress .ring.is-on circle { fill: var(--celery); }
 
   /* ---------- Motion ---------- */
 
@@ -933,7 +977,32 @@
     transition-delay: var(--rd, 0ms);
   }
 
+  /* Loops rest while their section is off screen */
+  .is-resting, .is-resting * { animation-play-state: paused !important; }
+
   @media (prefers-reduced-motion: no-preference) {
+    /* As a heading arrives, its key word is marked: the colour block is swept in like a highlighter stroke */
+    .hl::before, .shine::before, .band-line .incl::before {
+      transform-origin: left center;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+    }
+    .js .rv:not(.in) .hl::before,
+    .js .rv:not(.in) .shine::before,
+    .js .rv:not(.in) .incl::before { transform: rotate(-2deg) scaleX(0); }
+
+    /* and the squiggle is drawn under it by hand */
+    .squig { stroke-dasharray: 100; stroke-dashoffset: 0; transition: stroke-dashoffset 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s; }
+    .js .rv:not(.in) .squig { stroke-dashoffset: 100; }
+
+    /* The one authored moment: the test is a paper label laid down on the orange */
+    .js .band-line.rv { transform: rotate(-6deg) scale(1.08); box-shadow: 0.34em 0.42em 0 var(--denim); }
+    .js .band-line.rv.in {
+      transform: var(--tilt);
+      box-shadow: 0.1em 0.1em 0 var(--denim);
+      transition: opacity 0.35s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--rd, 0ms);
+    }
+
     .hero-pattern .ring,
     .hero-pattern .dot-center {
       transform-box: fill-box;
@@ -1226,7 +1295,7 @@
           <p>Short pieces cut from the rest or built around it. It’s where most people first meet us, and it points them to the full work.</p>
         </li>
       </ul>
-      <h3 id="free" class="subhead rv">What’s free to change</h3>
+      <h3 id="free" class="subhead rv">What’s free to change<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <ul class="pills rv">
         <li>Subject</li>
         <li>Genre</li>
@@ -1291,7 +1360,7 @@
       </figure>
       <p class="note rv"><strong>The rule:</strong> the official brand image always carries everything: the bloom head, the world held up, the electric guitar and the denim jacket, exactly as at the top of this page. Everywhere else he can show up differently: just the bloom, just the hand holding the world, a new outfit, any art style, any colour. Logo and icon never change.</p>
       <figure class="guide rv">
-        <a href="inner-hum-brand-guide.pdf"><img src="inner-hum-brand-guide.webp" width="2000" height="1844" loading="lazy" decoding="async" alt="The Inner Hum brand system: the ih mark, the note bloom and the flower-head, where each one goes, the rule, our colours and our type."></a>
+        <a href="inner-hum-brand-guide.pdf" aria-label="Brand guide (PDF), full size"><img src="inner-hum-brand-guide.webp" width="2000" height="1844" loading="lazy" decoding="async" alt="The Inner Hum brand system: the ih mark, the note bloom and the flower-head, where each one goes, the rule, our colours and our type."></a>
       </figure>
       <p class="next rv">Everything in one place, in high resolution: <a href="inner-hum-brand-guide.pdf">Brand guide (PDF) →</a></p>
     </div>
@@ -1340,7 +1409,7 @@
     <div class="measure">
       <h2 id="carries" class="rv">What every piece <span class="hl">carries</span><svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
       <p class="lede rv">Spirituality doesn’t need a guru or a label. It’s simply how we are. Every song, video, story and post shows that.</p>
-      <ol class="dot-list qualities">
+      <ul class="dot-list qualities">
         <li class="rv">
           <h3>It points inward.</h3>
           <p>Whatever it’s about (a person, nature, a moment, anything), it turns the person toward themselves. Even a piece that only asks a question looks inward for the answer.</p>
@@ -1357,7 +1426,7 @@
           <h3>It never judges.</h3>
           <p>No “you’re living wrong.”</p>
         </li>
-      </ol>
+      </ul>
       <p class="note rv"><strong>On religion and gurus:</strong> any religion can appear as part of someone’s life. Gurus, and anything that would make us look like a guru’s channel, stay out for now. Later they may come in subtly, never as the highlight.</p>
     </div>
   </section>
@@ -1395,7 +1464,7 @@
     <div class="measure">
       <h2 id="strategy" class="rv">Our <span class="hl">strategy</span><svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h2>
       <p class="lede rv">The vision says why we’re here. This is how the work finds the people it’s for.</p>
-      <ul class="dot-list qualities">
+      <ul class="dot-list qualities lead-points">
         <li class="rv">
           <h3>Who we write for first.</h3>
           <p>We want to reach everyone. But most of what we make is aimed at people aged 16 to 30, anywhere in the world, who don’t think of themselves as spiritual. Seekers and believers will find us too, and they’re welcome. Every piece is written first for the person who thinks none of this is for them.</p>
@@ -1406,7 +1475,7 @@
         </li>
       </ul>
 
-      <h3 class="subhead rv">What we put out</h3>
+      <h3 id="put-out" class="subhead rv">What we put out<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <ul class="dot-list principles kinds">
         <li class="rv"><strong>Music</strong>
           <ul>
@@ -1460,7 +1529,7 @@
         </li>
       </ul>
 
-      <h3 class="subhead rv">What stays the same</h3>
+      <h3 id="stays-same" class="subhead rv">What stays the same<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <p class="rv">Our stories, moods and motion can change freely, and the motion can grow with our budget, from stop-motion to full AI video. These stay in place so the page always looks like one channel:</p>
       <ul class="dot-list principles">
         <li class="rv"><strong>Covers:</strong> one template for every post.</li>
@@ -1472,48 +1541,48 @@
         <li class="rv" style="--rd: 480ms"><strong>Profile picture and bio:</strong> the mascot, and one clear line saying what we make.</li>
       </ul>
 
-      <h3 class="subhead rv">Where it lives</h3>
+      <h3 id="where-it-lives" class="subhead rv">Where it lives<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <p class="rv">YouTube is home: short videos for reach, longer ones for depth. Instagram is where pieces get shared. Streaming platforms carry the songs. The short pieces always point to the longer work.</p>
 
-      <h3 class="subhead rv">How we keep it human</h3>
+      <h3 id="keep-human" class="subhead rv">How we keep it human<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <ul class="dot-list principles">
         <li class="rv"><strong>Our own words.</strong> We write every lyric and finish every track ourselves, under our real names, and we say where AI was used.</li>
         <li class="rv" style="--rd: 80ms"><strong>Our own experience.</strong> We only make pieces about what we’ve seen for ourselves, never anyone else’s lines, stories or recordings.</li>
         <li class="rv" style="--rd: 160ms"><strong>Fewer, better pieces.</strong> Varied and made with care, never mass-produced.</li>
       </ul>
 
-      <h3 class="subhead rv">How it sustains itself</h3>
+      <h3 id="sustains" class="subhead rv">How it sustains itself<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <p class="rv">None of us is paid from this. Income from ads, and any support people choose to give, goes back into the work: tools, better production, real musicians. We never ask for support inside a piece.</p>
 
-      <h3 class="subhead rv">What we watch</h3>
+      <h3 id="what-we-watch" class="subhead rv">What we watch<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <p class="rv">Whether people finish a piece, whether they send it to someone, and whether they tell us it hit them and they don’t know why.</p>
 
-      <h3 class="subhead rv">The order of work</h3>
-      <ol class="dot-list principles">
-        <li class="rv"><strong>1. Vision.</strong> Done. It’s this page.</li>
-        <li class="rv" style="--rd: 80ms"><strong>2. Strategy.</strong> Done. It’s this section.</li>
-        <li class="rv" style="--rd: 160ms"><strong>3. Art style.</strong> One look for everything we make.</li>
-        <li class="rv" style="--rd: 240ms"><strong>4. Colours, fonts and theme.</strong> And how we present ourselves on each platform.</li>
-        <li class="rv" style="--rd: 320ms"><strong>5. Content.</strong> Our three to five series, with examples, and the ideas and scripts for the first four reels.</li>
-        <li class="rv" style="--rd: 400ms"><strong>6. The name.</strong> Chosen once the look and the first reels are clear to all of us, then the logo and handles.</li>
-        <li class="rv" style="--rd: 480ms"><strong>7. Launch.</strong> The first four reels, shown first to a few of the people we’re writing for.</li>
+      <h3 id="order-of-work" class="subhead rv">The order of work<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
+      <ol class="dot-list principles steps">
+        <li class="rv"><strong><span class="n">1.</span> Vision.</strong> Done. It’s this page.</li>
+        <li class="rv" style="--rd: 80ms"><strong><span class="n">2.</span> Strategy.</strong> Done. It’s this section.</li>
+        <li class="rv" style="--rd: 160ms"><strong><span class="n">3.</span> Art style.</strong> One look for everything we make.</li>
+        <li class="rv" style="--rd: 240ms"><strong><span class="n">4.</span> Colours, fonts and theme.</strong> And how we present ourselves on each platform.</li>
+        <li class="rv" style="--rd: 320ms"><strong><span class="n">5.</span> Content.</strong> Our three to five series, with examples, and the ideas and scripts for the first four reels.</li>
+        <li class="rv" style="--rd: 400ms"><strong><span class="n">6.</span> The name.</strong> Chosen once the look and the first reels are clear to all of us, then the logo and handles.</li>
+        <li class="rv" style="--rd: 480ms"><strong><span class="n">7.</span> Launch.</strong> The first four reels, shown first to a few of the people we’re writing for.</li>
       </ol>
-      <p class="rv" style="margin-top: 1.6rem"><strong>Who does what:</strong> one of us takes steps 3 and 4 and locks the look of the channel. The other two prepare the content in step 5. Step 6 we do together.</p>
+      <p class="note rv" style="margin-top: 1.6rem"><strong>Who does what:</strong> one of us takes steps 3 and 4 and locks the look of the channel. The other two prepare the content in step 5. Step 6 we do together.</p>
       <p class="aside rv">A child is born before it’s named. We name the channel when all three of us are picturing the same thing.</p>
 
-      <h3 class="subhead rv">Our goals for the first six months</h3>
+      <h3 id="goals" class="subhead rv">Our goals for the first six months<svg class="squig" aria-hidden="true"><use href="#squiggle"/></svg></h3>
       <p class="rv">We’re three people doing this alongside other work, so we keep a pace we can hold every month without a gap:</p>
       <ul class="dot-list principles">
         <li class="rv"><strong>6 songs,</strong> each with its music video.</li>
         <li class="rv" style="--rd: 80ms"><strong>24 short pieces,</strong> four a month, one a week.</li>
       </ul>
-      <p class="rv" style="margin-top: 1.6rem">What we aim to reach:</p>
+      <div class="note targets" style="margin-top: 1.6rem"><p class="rv">What we aim to reach:</p>
       <ul class="dot-list principles">
         <li class="rv"><strong>100,000 followers</strong> across our platforms.</li>
         <li class="rv" style="--rd: 80ms"><strong>One music video past 1 million views.</strong></li>
         <li class="rv" style="--rd: 160ms"><strong>100 million views in all.</strong> This one is a stretch.</li>
         <li class="rv" style="--rd: 240ms"><strong>YouTube ad income switched on.</strong> The bar doubles for channels applying from 1 February 2027.</li>
-      </ul>
+      </ul></div>
       <p class="aside rv">These numbers tell us whether the work is reaching people. They aren’t why we make it.</p>
     </div>
   </section>
@@ -1636,6 +1705,15 @@
   });
 
   // Content drifts in as each world arrives.
+  var loops = document.querySelectorAll(".hero, .pills");
+  if ("IntersectionObserver" in window) {
+    var rest = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) entries[i].target.classList.toggle("is-resting", !entries[i].isIntersecting);
+    });
+    for (var l = 0; l < loops.length; l++) rest.observe(loops[l]);
+  }
+
+  window.ihReady = true;
   var revealed = document.querySelectorAll(".rv");
   if ("IntersectionObserver" in window) {
     var obs = new IntersectionObserver(function (entries) {
