@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inner Hum Growth Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout idea: an architect's blueprint sheet. Title block first, then numbered drawings, read top to bottom. */
+  :root {
+    --paper: #0d3a6e;
+    --paper-deep: #0a2f5a;
+    --line: #cfe6ff;
+    --line-dim: rgba(207, 230, 255, 0.45);
+    --grid: rgba(207, 230, 255, 0.07);
+    --mark: #ffcf5a;
+    --soft: #9fc6f0;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+      linear-gradient(rgba(207,230,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(207,230,255,0.035) 1px, transparent 1px);
+    background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+    color: var(--line);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .sheet {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+  .frame {
+    border: 2px solid var(--line);
+    outline: 1px solid var(--line-dim);
+    outline-offset: 6px;
+    padding: 28px clamp(16px, 3vw, 36px) 36px;
+  }
+
+  /* Title block */
+  .title-block {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0;
+    border: 1.5px solid var(--line);
+    margin-bottom: 34px;
+  }
+  .tb-main { padding: 18px 20px; border-right: 1.5px solid var(--line); }
+  .tb-main h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 1.4rem + 3.4vw, 3.8rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .tb-main p { margin: 10px 0 0; color: var(--soft); max-width: 60ch; }
+  .tb-meta { display: grid; font-family: var(--mono); font-size: 12px; min-width: 200px; }
+  .tb-meta div { padding: 8px 14px; border-bottom: 1px solid var(--line-dim); }
+  .tb-meta div:last-child { border-bottom: 0; }
+  .tb-meta span { display: block; color: var(--soft); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (max-width: 640px) {
+    .title-block { grid-template-columns: 1fr; }
+    .tb-main { border-right: 0; border-bottom: 1.5px solid var(--line); }
+    .tb-meta { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Drawings */
+  .drawing { margin-top: 38px; }
+  .drawing-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 1px dashed var(--line-dim);
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+  }
+  .drawing-head .no {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--paper);
+    background: var(--line);
+    padding: 2px 8px;
+    border-radius: 2px;
+    flex: none;
+  }
+  .drawing-head h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .drawing-head .note { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--soft); text-align: right; }
+
+  .core {
+    border: 2px solid var(--mark);
+    padding: 22px;
+    text-align: center;
+    position: relative;
+  }
+  .core .big {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2rem, 1.3rem + 3vw, 3.4rem);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--mark);
+    line-height: 1;
+  }
+  .core p { margin: 10px auto 0; max-width: 62ch; color: var(--line); }
+
+  .grid { display: grid; gap: 14px; }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .g4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+  .box {
+    border: 1.5px solid var(--line);
+    padding: 14px 16px 16px;
+    background: rgba(10, 47, 90, 0.55);
+  }
+  .box.dashed { border-style: dashed; }
+  .box.hot { border-color: var(--mark); }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+  .hot .tag { color: var(--mark); }
+  .box h3 {
+    margin: 4px 0 6px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+  .box p { margin: 0; color: var(--soft); font-size: 15px; }
+  .box ul { margin: 6px 0 0; padding-left: 18px; color: var(--soft); font-size: 15px; }
+  .box li + li { margin-top: 3px; }
+
+  /* Flow strips */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0;
+  }
+  .flow .step {
+    flex: 1 1 160px;
+    border: 1.5px solid var(--line);
+    padding: 12px 14px;
+    position: relative;
+    background: rgba(10, 47, 90, 0.55);
+    margin: 0 22px 12px 0;
+  }
+  .flow .step:last-child { margin-right: 0; }
+  .flow .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    width: 22px;
+    height: 1.5px;
+    background: var(--line);
+  }
+  .flow .step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: calc(50% - 4px);
+    border: 4.5px solid transparent;
+    border-left: 6px solid var(--line);
+    z-index: 1;
+    transform: translateX(6px);
+  }
+  .flow .step .n { font-family: var(--mono); font-size: 11px; color: var(--mark); }
+  .flow .step b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.2rem; letter-spacing: 0.02em; margin-top: 2px; }
+  .flow .step span { display: block; color: var(--soft); font-size: 14px; margin-top: 3px; }
+  @media (max-width: 560px) {
+    .flow .step { margin-right: 0; flex-basis: 100%; }
+    .flow .step::after, .flow .step::before { display: none; }
+  }
+
+  .callout {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--soft);
+    border-left: 2px solid var(--mark);
+    padding: 4px 0 4px 12px;
+  }
+  .callout b { color: var(--mark); font-weight: 500; }
+
+  .quote { font-family: var(--display); font-size: 1.15rem; color: var(--line); font-style: italic; }
+
+  /* Funnel */
+  .funnel { display: grid; gap: 10px; justify-items: center; }
+  .funnel .tier {
+    border: 1.5px solid var(--line);
+    padding: 12px 18px;
+    text-align: center;
+    background: rgba(10, 47, 90, 0.55);
+  }
+  .funnel .t1 { width: 100%; }
+  .funnel .t2 { width: 78%; }
+  .funnel .t3 { width: 56%; border-color: var(--mark); }
+  @media (max-width: 560px) { .funnel .t2, .funnel .t3 { width: 100%; } }
+  .funnel .tier b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.03em; }
+  .funnel .tier span { color: var(--soft); font-size: 14.5px; }
+  .funnel .t3 b { color: var(--mark); }
+
+  /* Diagram wrapper */
+  .diagram { overflow-x: auto; }
+  .diagram svg { display: block; width: 100%; min-width: 640px; height: auto; }
+  .diagram text { font-family: var(--mono); fill: var(--line); }
+
+  table.spec {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .spec-wrap { overflow-x: auto; }
+  table.spec th, table.spec td {
+    border: 1px solid var(--line-dim);
+    padding: 9px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.spec th {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    background: rgba(207, 230, 255, 0.06);
+  }
+  table.spec td:first-child { font-family: var(--display); font-weight: 600; font-size: 1.1rem; letter-spacing: 0.02em; white-space: nowrap; }
+  table.spec td { color: var(--soft); }
+  table.spec td:first-child { color: var(--line); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .foot {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--soft);
+    border-top: 1px dashed var(--line-dim);
+    padding-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+<div class="frame">
+
+  <header class="title-block">
+    <div class="tb-main">
+      <h1>Inner Hum<br>Growth Blueprint</h1>
+      <p>How our songs, stories and posts find the people they’re for, and keep finding more of them, without breaking our one test.</p>
+    </div>
+    <div class="tb-meta">
+      <div><span>Project</span>Inner Hum (working name)</div>
+      <div><span>Drawing</span>Strategy · Sheet 1 of 1</div>
+      <div><span>Revision</span>01 · 23 Nov 2026</div>
+      <div><span>Team</span>3 · part-time</div>
+    </div>
+  </header>
+
+  <!-- 01 -->
+  <section class="drawing" aria-labelledby="d1">
+    <div class="drawing-head"><span class="no">01</span><h2 id="d1">The load-bearing wall</h2><span class="note">nothing ships<br>without passing this</span></div>
+    <div class="core">
+      <div class="big">Inward &amp; inclusive</div>
+      <p>We don’t take sides on issues and we don’t moralise. We show the human nature underneath them, so anyone, on any side, can look at it and turn inward.</p>
+    </div>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="box"><div class="tag">Rule</div><h3>Observe, don’t judge</h3><p>Curious, never “you’re living wrong”.</p></div>
+      <div class="box"><div class="tag">Rule</div><h3>Show, don’t tell</h3><p>People get there on their own.</p></div>
+      <div class="box"><div class="tag">Rule</div><h3>No stands</h3><p>Go underneath the debate, not into it.</p></div>
+      <div class="box"><div class="tag">Rule</div><h3>No guru, no label</h3><p>Any tradition can appear; none owns us.</p></div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="drawing" aria-labelledby="d2">
+    <div class="drawing-head"><span class="no">02</span><h2 id="d2">Who it’s built for</h2><span class="note">design for the narrow,<br>package for the wide</span></div>
+    <div class="funnel">
+      <div class="tier t1"><b>Everyone</b><span>Welcome to find us: believers, seekers, the curious. The surface of every piece (hook, visuals, music) is made for them.</span></div>
+      <div class="tier t2"><b>Seed audience · 19–25</b><span>Skeptical, atheist or non-spiritual, intellectual but open. Quietly dealing with overthinking, comparison, loneliness, “what’s the point”.</span></div>
+      <div class="tier t3"><b>Lever · opinion leaders 25–35</b><span>The voices the seed audience follows. The depth of every piece is made for them to quote, stitch and share.</span></div>
+    </div>
+    <p class="callout"><b>Two layers, one piece:</b> the surface stops the scroll for anyone; the depth earns the respect of the people others listen to.</p>
+  </section>
+
+  <!-- 03 -->
+  <section class="drawing" aria-labelledby="d3">
+    <div class="drawing-head"><span class="no">03</span><h2 id="d3">The content engine</h2><span class="note">topic bank sheet<br>feeds this</span></div>
+    <div class="flow">
+      <div class="step"><span class="n">A</span><b>Collect</b><span>Problems people talk about, and ones they suffer with quietly.</span></div>
+      <div class="step"><span class="n">B</span><b>Score</b><span>Reach + Depth + Fit, each 1–5. Highest goes next.</span></div>
+      <div class="step"><span class="n">C</span><b>Shape</b><span>Their worry → the human pattern → turn inward → open question.</span></div>
+      <div class="step"><span class="n">D</span><b>Make</b><span>As a song, a story, a reel or a post. Any world, any tradition.</span></div>
+    </div>
+    <div class="grid g3" style="margin-top:4px">
+      <div class="box hot"><div class="tag">Stream 1 · 2 a month</div><h3>Trending</h3><p>What everyone’s already arguing about. Brings reach.</p><p class="quote" style="margin-top:8px">“Different teams. Same need to belong.”</p></div>
+      <div class="box hot"><div class="tag">Stream 2 · 2 a month</div><h3>Quiet suffering</h3><p>Not famous, but felt alone by many. Brings depth and saves.</p><p class="quote" style="margin-top:8px">“Nothing’s wrong. Nothing feels alive either.”</p></div>
+      <div class="box dashed"><div class="tag">Test before posting</div><h3>Judged or curious?</h3><p>If they’d feel told off, rewrite it. If they’d go “huh… wait”, it’s ready.</p></div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="drawing" aria-labelledby="d4">
+    <div class="drawing-head"><span class="no">04</span><h2 id="d4">One piece, three cuts</h2><span class="note">make once,<br>publish 4–5 ways</span></div>
+    <div class="diagram">
+      <svg viewBox="0 0 960 300" role="img" aria-label="One core piece splits into four cuts: the full piece on YouTube, a 30 to 60 second cut as a Reel and Short, the key line as a quote post and an X post, and the idea as a carousel and an X thread.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#cfe6ff"/></marker>
+        </defs>
+        <rect x="20" y="105" width="210" height="90" fill="rgba(10,47,90,0.7)" stroke="#ffcf5a" stroke-width="2"/>
+        <text x="125" y="140" text-anchor="middle" font-size="13" fill="#ffcf5a">CORE PIECE</text>
+        <text x="125" y="162" text-anchor="middle" font-size="12">song · story · video</text>
+        <text x="125" y="180" text-anchor="middle" font-size="11" fill="#9fc6f0">4 a month</text>
+        <path d="M230 150 C290 150 290 40 360 40" fill="none" stroke="#cfe6ff" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M230 150 C300 150 300 113 360 113" fill="none" stroke="#cfe6ff" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M230 150 C300 150 300 187 360 187" fill="none" stroke="#cfe6ff" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M230 150 C290 150 290 260 360 260" fill="none" stroke="#cfe6ff" stroke-width="1.5" marker-end="url(#ar)"/>
+        <g font-size="12">
+          <rect x="362" y="18" width="250" height="44" fill="none" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="376" y="45">1 · Full piece</text>
+          <rect x="362" y="91" width="250" height="44" fill="none" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="376" y="118">2 · 30–60 sec cut</text>
+          <rect x="362" y="165" width="250" height="44" fill="none" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="376" y="192">3 · The key line</text>
+          <rect x="362" y="238" width="250" height="44" fill="none" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="376" y="265">4 · The idea behind it</text>
+        </g>
+        <g stroke="#cfe6ff" stroke-width="1.2" stroke-dasharray="4 4">
+          <line x1="612" y1="40" x2="660" y2="40"/><line x1="612" y1="113" x2="660" y2="113"/>
+          <line x1="612" y1="187" x2="660" y2="187"/><line x1="612" y1="260" x2="660" y2="260"/>
+        </g>
+        <g font-size="12" fill="#9fc6f0">
+          <text x="668" y="45">YouTube</text>
+          <text x="668" y="118">Instagram Reel + YouTube Short</text>
+          <text x="668" y="192">Instagram quote post + X post</text>
+          <text x="668" y="265">Instagram carousel + X thread</text>
+        </g>
+      </svg>
+    </div>
+    <p class="callout"><b>Output:</b> 4 core pieces a month become roughly 16–20 posts across platforms, with little extra work.</p>
+  </section>
+
+  <!-- 05 -->
+  <section class="drawing" aria-labelledby="d5">
+    <div class="drawing-head"><span class="no">05</span><h2 id="d5">Where each piece lives</h2><span class="note">each platform<br>has one job</span></div>
+    <div class="grid g3">
+      <div class="box hot"><div class="tag">Home · depth</div><h3>YouTube</h3><ul><li>Songs and music videos</li><li>Longer stories, calm music</li><li>Shorts cut from those</li><li>Found by search for years; ad income</li></ul></div>
+      <div class="box"><div class="tag">Sharing · recognition</div><h3>Instagram</h3><ul><li>Reels, carousels, quote posts</li><li>Stories and comment replies</li><li>Collab posts later</li><li>Where people send us to friends</li></ul></div>
+      <div class="box"><div class="tag">Opinion leaders</div><h3>X</h3><ul><li>Short lines and open questions</li><li>Threads on one topic</li><li>Replies to opinion leaders’ posts</li><li>Clips that link to the full piece</li></ul></div>
+    </div>
+    <p class="callout"><b>Daily habit:</b> 20–30 minutes replying on X and answering comments on Instagram and YouTube. This is how the 25–35 voices find us.</p>
+  </section>
+
+  <!-- 06 -->
+  <section class="drawing" aria-labelledby="d6">
+    <div class="drawing-head"><span class="no">06</span><h2 id="d6">Fixed signatures</h2><span class="note">so every piece reads<br>as one channel</span></div>
+    <div class="grid g4">
+      <div class="box"><div class="tag">Character</div><h3>The flower-head</h3><p>Brand image with all its elements; free to change style elsewhere.</p></div>
+      <div class="box"><div class="tag">Hidden in every piece</div><h3>The Brahma Kamal</h3><p>“Found the flower?” turns into comments and rewatches.</p></div>
+      <div class="box"><div class="tag">Every ending</div><h3>Two seconds + the hum</h3><p>The same close, every time.</p></div>
+      <div class="box"><div class="tag">Every frame</div><h3>Font, colours, captions</h3><p>One font, one palette, one caption style.</p></div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="drawing" aria-labelledby="d7">
+    <div class="drawing-head"><span class="no">07</span><h2 id="d7">The compound loop</h2><span class="note">why slow starts<br>speed up</span></div>
+    <div class="diagram">
+      <svg viewBox="0 0 960 330" role="img" aria-label="A loop of five stages: make a piece people replay, it gets saved and shared, recognition builds through the signatures, opinion leaders notice and share, new people find the whole library, and that leads back to making the next piece.">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#cfe6ff"/></marker>
+        </defs>
+        <ellipse cx="480" cy="165" rx="300" ry="118" fill="none" stroke="rgba(207,230,255,0.25)" stroke-width="1" stroke-dasharray="3 6"/>
+        <circle cx="480" cy="165" r="62" fill="rgba(10,47,90,0.8)" stroke="#ffcf5a" stroke-width="2"/>
+        <text x="480" y="160" text-anchor="middle" font-size="13" fill="#ffcf5a">LIBRARY</text>
+        <text x="480" y="180" text-anchor="middle" font-size="11" fill="#9fc6f0">grows every month</text>
+        <g font-size="12">
+          <rect x="370" y="14" width="220" height="46" fill="rgba(10,47,90,0.85)" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="480" y="34" text-anchor="middle">1 · A piece worth replaying</text>
+          <text x="480" y="51" text-anchor="middle" font-size="10.5" fill="#9fc6f0">craft over volume</text>
+
+          <rect x="700" y="92" width="220" height="46" fill="rgba(10,47,90,0.85)" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="810" y="112" text-anchor="middle">2 · Saved and sent</text>
+          <text x="810" y="129" text-anchor="middle" font-size="10.5" fill="#9fc6f0">algorithm pushes it further</text>
+
+          <rect x="610" y="262" width="220" height="46" fill="rgba(10,47,90,0.85)" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="720" y="282" text-anchor="middle">3 · Recognised in 1 second</text>
+          <text x="720" y="299" text-anchor="middle" font-size="10.5" fill="#9fc6f0">signatures stack up</text>
+
+          <rect x="130" y="262" width="220" height="46" fill="rgba(10,47,90,0.85)" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="240" y="282" text-anchor="middle">4 · Opinion leaders share</text>
+          <text x="240" y="299" text-anchor="middle" font-size="10.5" fill="#9fc6f0">credibility arrives</text>
+
+          <rect x="40" y="92" width="220" height="46" fill="rgba(10,47,90,0.85)" stroke="#cfe6ff" stroke-width="1.5"/>
+          <text x="150" y="112" text-anchor="middle">5 · New people find it all</text>
+          <text x="150" y="129" text-anchor="middle" font-size="10.5" fill="#9fc6f0">old pieces get new life</text>
+        </g>
+        <g fill="none" stroke="#cfe6ff" stroke-width="1.5">
+          <path d="M590 40 C680 45 760 60 790 90" marker-end="url(#ar2)"/>
+          <path d="M820 140 C830 200 800 240 760 260" marker-end="url(#ar2)"/>
+          <path d="M610 285 L352 285" marker-end="url(#ar2)"/>
+          <path d="M180 260 C140 220 130 180 140 140" marker-end="url(#ar2)"/>
+          <path d="M170 90 C200 60 290 42 368 38" marker-end="url(#ar2)"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="drawing" aria-labelledby="d8">
+    <div class="drawing-head"><span class="no">08</span><h2 id="d8">Launch sequence</h2><span class="note">first moves,<br>in order</span></div>
+    <div class="flow">
+      <div class="step"><span class="n">01</span><b>Hero post</b><span>The flower-head in a new art style, with one subtle quote.</span></div>
+      <div class="step"><span class="n">02</span><b>Carousels</b><span>Template-style, on seeking and inclusiveness.</span></div>
+      <div class="step"><span class="n">03</span><b>First reel</b><span>Simple and new, from the top of the topic bank.</span></div>
+      <div class="step"><span class="n">04</span><b>Steady rhythm</b><span>4 core pieces a month, cut for all three platforms.</span></div>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="drawing" aria-labelledby="d9">
+    <div class="drawing-head"><span class="no">09</span><h2 id="d9">What we measure</h2><span class="note">control the inputs,<br>watch the outputs</span></div>
+    <div class="spec-wrap">
+      <table class="spec">
+        <thead><tr><th>Measure</th><th>Kind</th><th>Six-month mark</th></tr></thead>
+        <tbody>
+          <tr><td>Posting without gaps</td><td>We control it</td><td class="num">4 core pieces every month, no missed month</td></tr>
+          <tr><td>Finished and shared</td><td>We control the craft</td><td>People watch to the end and send it on</td></tr>
+          <tr><td>“It hit me”</td><td>Signal</td><td>People telling us a piece made them stop and look within</td></tr>
+          <tr><td>Followers</td><td>Outcome</td><td class="num">100,000 across platforms</td></tr>
+          <tr><td>Music video</td><td>Outcome</td><td class="num">One past 1 million views</td></tr>
+          <tr><td>Total views</td><td>Stretch</td><td class="num">100 million</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="callout"><b>Reminder:</b> the numbers tell us whether the work is reaching people. They aren’t why we make it.</p>
+  </section>
+
+  <div class="foot">
+    <span>Inner Hum · Strategy blueprint · Rev 01</span>
+    <span>Inward and inclusive</span>
+    <span>Read with: Our Foundation · Topic Bank</span>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
