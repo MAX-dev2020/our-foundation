@@ -965,9 +965,9 @@
 
   /* ---------- Motion ---------- */
 
+  /* Words are always visible. Arriving only nudges them into place. */
   .js .rv {
-    opacity: 0;
-    transform: translateY(26px) var(--tilt, rotate(0deg));
+    transform: translateY(14px) var(--tilt, rotate(0deg));
   }
 
   .js .rv.in {
@@ -1719,6 +1719,20 @@
 
   window.ihReady = true;
   var revealed = document.querySelectorAll(".rv");
+  // A plain position check as well, in case the observer never reports
+  var settling = false;
+  function settle() {
+    settling = false;
+    var edge = window.innerHeight || document.documentElement.clientHeight;
+    for (var s = 0; s < revealed.length; s++) {
+      if (!revealed[s].classList.contains("in") && revealed[s].getBoundingClientRect().top < edge * 0.95) revealed[s].classList.add("in");
+    }
+  }
+  function askSettle() { if (!settling) { settling = true; setTimeout(settle, 120); } }
+  window.addEventListener("scroll", askSettle, { passive: true });
+  window.addEventListener("resize", askSettle);
+  window.addEventListener("load", askSettle);
+  askSettle();
   if ("IntersectionObserver" in window) {
     var obs = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
