@@ -190,15 +190,8 @@
   }
 
   /* 9. Glass: a frosted panel over shapes of colour */
-  /* Airbrush, in three places only: colour sprayed soft, under a heavy printed stipple */
+  /* Airbrush, in two places only: colour sprayed soft, under a heavy printed stipple */
   .world.tx-air::after { background-image: var(--stipple), var(--stipple-ink); }
-
-  .hero.tx-air .tex {
-    background:
-      radial-gradient(58% 52% at 4% 0, color-mix(in srgb, var(--plum) 90%, transparent), transparent 74%),
-      radial-gradient(64% 60% at 100% 100%, color-mix(in srgb, var(--seaglass) 62%, transparent), transparent 72%),
-      radial-gradient(30% 34% at 74% 44%, color-mix(in srgb, var(--wool) 20%, transparent), transparent 72%);
-  }
 
   .world--plum.tx-aura.tx-air .tex {
     background:
@@ -1227,7 +1220,7 @@
   </symbol>
 </svg>
 
-<header class="world world--night hero tx-aura tx-air">
+<header class="world world--night hero tx-aura">
   <div class="tex" aria-hidden="true"></div>
   <div class="hero-art">
     <div class="hero-halo"><svg class="dots hero-pattern" aria-hidden="true" focusable="false"></svg></div>
